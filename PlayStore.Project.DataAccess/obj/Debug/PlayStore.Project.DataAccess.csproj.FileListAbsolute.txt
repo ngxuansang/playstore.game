@@ -1,0 +1,10 @@
+c:\users\windows\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.DataAccess\bin\Debug\PlayStore.Project.DataAccess.dll.config
+c:\users\windows\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.DataAccess\bin\Debug\PlayStore.Project.DataAccess.dll
+c:\users\windows\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.DataAccess\bin\Debug\PlayStore.Project.DataAccess.pdb
+c:\users\windows\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.DataAccess\bin\Debug\EntityFramework.dll
+c:\users\windows\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\windows\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.DataAccess\bin\Debug\EntityFramework.xml
+c:\users\windows\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\windows\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.DataAccess\obj\Debug\PlayStore.Project.DataAccess.csprojResolveAssemblyReference.cache
+c:\users\windows\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.DataAccess\obj\Debug\PlayStore.Project.DataAccess.dll
+c:\users\windows\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.DataAccess\obj\Debug\PlayStore.Project.DataAccess.pdb

@@ -1,0 +1,155 @@
+﻿@model PlayStore.Project.Models.IndexViewModel
+@{
+    ViewBag.Title = "Manage";
+}
+
+@section css{
+    <!-- Vendor -->
+    <link href="~/Assets/js/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/slick/slick.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/swiper/swiper.min.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/magnificpopup/dist/magnific-popup.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/nouislider/nouislider.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/darktooltip/dist/darktooltip.css" rel="stylesheet">
+    <link href="~/Assets/css/animate.css" rel="stylesheet">
+
+    <!-- Custom -->
+    <link href="~/Assets/css/style.css" rel="stylesheet">
+    <link href="~/Assets/css/megamenu.css" rel="stylesheet">
+    <link href="~/Assets/css/tools.css" rel="stylesheet">
+
+    <!-- Color Schemes -->
+    <link href="~/Assets/css/style-color-pink.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-green.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-lightgreen.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-blue.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-lightblue.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-violet.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-tomato.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-caribbean.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-orange.css" rel="stylesheet">
+
+    <!-- Icon Font -->
+    <link href="~/Assets/fonts/icomoon-reg/style.css" rel="stylesheet">
+}
+
+@section js{
+    <script src="~/Assets/js/vendor/jquery/jquery.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Assets/js/vendor/swiper/swiper.min.js"></script>
+    <script src="~/Assets/js/vendor/slick/slick.min.js"></script>
+    <script src="~/Assets/js/vendor/parallax/parallax.js"></script>
+    <script src="~/Assets/js/vendor/isotope/isotope.pkgd.min.js"></script>
+    <script src="~/Assets/js/vendor/magnificpopup/dist/jquery.magnific-popup.js"></script>
+    <script src="~/Assets/js/vendor/countdown/jquery.countdown.min.js"></script>
+    <script src="~/Assets/js/vendor/nouislider/nouislider.min.js"></script>
+    <script src="~/Assets/js/vendor/ez-plus/jquery.ez-plus.js"></script>
+    <script src="~/Assets/js/vendor/tocca/tocca.min.js"></script>
+    <script src="~/Assets/js/vendor/bootstrap-tabcollapse/bootstrap-tabcollapse.js"></script>
+    <script src="~/Assets/js/vendor/scrollLock/jquery-scrollLock.min.js"></script>
+    <script src="~/Assets/js/vendor/darktooltip/dist/jquery.darktooltip.js"></script>
+    <script src="~/Assets/js/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="~/Assets/js/vendor/instafeed/instafeed.min.js"></script>
+    <script src="~/Assets/js/megamenu.min.js"></script>
+    <script src="~/Assets/js/tools.min.js"></script>
+    <script src="~/Assets/js/app.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('header').attr('class', 'page-header variant-2 fullboxed sticky smart');
+        });
+        $('label').append(' <span class="required">*</span>');
+    </script>
+}
+
+<main class="page-main">
+    <div class="block">
+        <div class="container">
+            <ul class="breadcrumbs">
+                <li><a href="@Url.Action("Index", "Home")"><i class="icon icon-home"></i></a></li>
+                <li>/<span>Account Recovery</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="block">
+        <div class="container">
+            <div class="form-card">
+                <h4>Change your account settings</h4>
+                <dl class="dl-horizontal">
+                    <dt>Password:</dt>
+                    <dd>
+                        @if (Model.HasPassword)
+                        {
+                            @Html.ActionLink("Change your password", "ChangePassword")
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Create", "SetPassword")
+                        }
+                    </dd>
+                    <dt>External Logins:</dt>
+                    <dd>
+                        @Model.Logins.Count [
+                        @Html.ActionLink("Manage", "ManageLogins") ]
+                    </dd>
+                    @*
+            Phone Numbers can used as a second factor of verification in a two-factor authentication system.
+
+             See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                for details on setting up this ASP.NET application to support two-factor authentication using SMS.
+
+             Uncomment the following block after you have set up two-factor authentication
+                    *@
+                    @*
+            <dt>Phone Number:</dt>
+            <dd>
+                @(Model.PhoneNumber ?? "None")
+                @if (Model.PhoneNumber != null)
+                {
+                    <br />
+                    <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
+                    using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>[<input type="submit" value="Remove" class="btn-link" />]</text>
+                    }
+                }
+                else
+                {
+                    <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
+                }
+            </dd>
+                    *@
+                    <dt>Two-Factor Authentication:</dt>
+                    <dd>
+                        <p>
+                            There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                            for details on setting up this ASP.NET application to support two-factor authentication.
+                        </p>
+                        @*@if (Model.TwoFactor)
+                {
+                    using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>Enabled
+                        <input type="submit" value="Disable" class="btn btn-link" />
+                        </text>
+                    }
+                }
+                else
+                {
+                    using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>Disabled
+                        <input type="submit" value="Enable" class="btn btn-link" />
+                        </text>
+                    }
+                }*@
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+    </div>
+</main>

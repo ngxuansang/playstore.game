@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    <div class="header-link dropdown-link header-account">
+        <a href="#"><i class="icon icon-user"></i></a>
+        <div class="dropdown-container right">
+            <p class="account-title">Hello @User.Identity.GetUserName()</p>
+            <a href="@Url.Action("Index", "Manage", null)" class="btn btn-full-width" title="Manage"><i class="fa fa-cog" aria-hidden="true"></i> account settings</a>
+            @*<div class="top-text">@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</div>*@
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right", @style = "width: 100%;" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <button class="btn btn-full-width" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out" aria-hidden="true"></i> Log off</button>
+                </div>
+            }
+        </div>
+    </div>
+}
+else
+{
+    <div class="header-link dropdown-link header-account">
+        <a href="#"><i class="icon icon-user"></i></a>
+        @Html.Action("Login", "Account")
+    </div>
+}

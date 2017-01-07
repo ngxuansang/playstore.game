@@ -1,0 +1,7 @@
+C:\Users\WINDOWS\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.ViewModels\bin\Debug\PlayStore.Project.ViewModels.dll
+C:\Users\WINDOWS\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.ViewModels\bin\Debug\PlayStore.Project.ViewModels.pdb
+C:\Users\WINDOWS\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.ViewModels\bin\Debug\PlayStore.Project.DataAccess.dll
+C:\Users\WINDOWS\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.ViewModels\bin\Debug\PlayStore.Project.DataAccess.pdb
+C:\Users\WINDOWS\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.ViewModels\obj\Debug\PlayStore.Project.ViewModels.csprojResolveAssemblyReference.cache
+C:\Users\WINDOWS\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.ViewModels\obj\Debug\PlayStore.Project.ViewModels.dll
+C:\Users\WINDOWS\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.ViewModels\obj\Debug\PlayStore.Project.ViewModels.pdb

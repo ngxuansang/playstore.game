@@ -1,0 +1,39 @@
+﻿@using PlayStore.Project.Models
+@model LoginViewModel
+@{
+    Layout = null;
+}
+<div class="dropdown-container right">
+    <div class="title" style="white-space: nowrap;">Registered Customers</div>   
+    <div class="top-text">If you have an account with us, please log in.</div>
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "frm-login" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "E-mail*" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password*" })
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" id="btn-login" class="btn">Sign in</button>
+        </div>
+    }
+    <section id="socialLoginForm">
+        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+    </section>
+    <!-- /form -->
+    <div class="title">OR</div>
+    <div class="bottom-text">Create a <a href="@Url.Action("Register", "Account")">New Account</a></div>
+    <div class="bottom-text"><a href="@Url.Action("ForgotPassword", "Account")">Forgot your password?</a></div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

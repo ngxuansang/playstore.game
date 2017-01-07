@@ -1,0 +1,190 @@
+﻿@model PlayStore.Project.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+@section css{
+    <!-- Vendor -->
+    <link href="~/Assets/js/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/slick/slick.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/swiper/swiper.min.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/magnificpopup/dist/magnific-popup.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/nouislider/nouislider.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/darktooltip/dist/darktooltip.css" rel="stylesheet">
+    <link href="~/Assets/css/animate.css" rel="stylesheet">
+
+    <!-- Custom -->
+    <link href="~/Assets/css/style.css" rel="stylesheet">
+    <link href="~/Assets/css/megamenu.css" rel="stylesheet">
+    <link href="~/Assets/css/tools.css" rel="stylesheet">
+
+    <!-- Color Schemes -->
+    <link href="~/Assets/css/style-color-pink.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-green.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-lightgreen.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-blue.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-lightblue.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-violet.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-tomato.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-caribbean.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-orange.css" rel="stylesheet">
+
+    <!-- Icon Font -->
+    <link href="~/Assets/fonts/icomoon-reg/style.css" rel="stylesheet">
+
+}
+
+@section js{
+    <script src="~/Assets/js/vendor/jquery/jquery.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Assets/js/vendor/swiper/swiper.min.js"></script>
+    <script src="~/Assets/js/vendor/slick/slick.min.js"></script>
+    <script src="~/Assets/js/vendor/parallax/parallax.js"></script>
+    <script src="~/Assets/js/vendor/isotope/isotope.pkgd.min.js"></script>
+    <script src="~/Assets/js/vendor/magnificpopup/dist/jquery.magnific-popup.js"></script>
+    <script src="~/Assets/js/vendor/countdown/jquery.countdown.min.js"></script>
+    <script src="~/Assets/js/vendor/nouislider/nouislider.min.js"></script>
+    <script src="~/Assets/js/vendor/ez-plus/jquery.ez-plus.js"></script>
+    <script src="~/Assets/js/vendor/tocca/tocca.min.js"></script>
+    <script src="~/Assets/js/vendor/bootstrap-tabcollapse/bootstrap-tabcollapse.js"></script>
+    <script src="~/Assets/js/vendor/scrollLock/jquery-scrollLock.min.js"></script>
+    <script src="~/Assets/js/vendor/darktooltip/dist/jquery.darktooltip.js"></script>
+    <script src="~/Assets/js/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="~/Assets/js/vendor/instafeed/instafeed.min.js"></script>
+    <script src="~/Assets/js/megamenu.min.js"></script>
+    <script src="~/Assets/js/tools.min.js"></script>
+    <script src="~/Assets/js/app.js"></script>
+    <script src="~/Assets/JsController/RegisterJS.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('header').attr('class', 'page-header variant-2 fullboxed sticky smart');
+        });
+        $('label').append(' <span class="required">*</span>');
+    </script>
+}
+
+<main class="page-main">
+    <div class="block">
+        <div class="container">
+            <ul class="breadcrumbs">
+                <li><a href="@Url.Action("Index", "Home")"><i class="icon icon-home"></i></a></li>
+                <li>/<span>Create account</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="block">
+        <div class="container">
+            <div class="form-card">
+                <h4>Personal Information</h4>
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "account-create form-horizontal", role = "form" }))
+                {
+                    <div class="form-group">
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+                    </div>
+                    
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.FullName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.BirthDate, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.BirthDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.LocationParentID, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.LocationParentID, (ViewData["Cities"] as IEnumerable<SelectListItem>), new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.LocationParentID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.LocationID, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                           @Html.DropDownListFor(m => m.LocationID, new List<SelectListItem>(), new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.LocationID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div>
+                                <button type="submit" class="btn btn-lg">Create</button><span class="required-text">* Required Fields</span>
+                            </div>
+                            <div class="back">or <a href="@Url.Action("Index", "Home")">Return to Store <i class="icon icon-undo"></i></a></div>
+                        </div>
+                    </div>
+                   
+                   
+                }
+
+                @*<form class="account-create" action="#">
+                        <label>First Name<span class="required">*</span></label>
+                        <input type="text" class="form-control input-lg">
+                        <label>Last Name<span class="required">*</span></label>
+                        <input type="text" class="form-control input-lg">
+                        <label>E-mail<span class="required">*</span></label>
+                        <input type="text" class="form-control input-lg">
+                        <label>Password<span class="required">*</span></label>
+                        <input type="password" class="form-control input-lg">
+                    </form>*@
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

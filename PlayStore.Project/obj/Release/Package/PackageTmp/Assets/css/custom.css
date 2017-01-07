@@ -1,0 +1,12 @@
+﻿.account-title{
+    white-space: nowrap;
+    font-size: 15px;
+}
+
+.btn-full-width{
+    width: 100%;
+}
+
+.btn{
+    text-transform: capitalize;
+}
