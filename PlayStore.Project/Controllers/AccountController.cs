@@ -13,6 +13,7 @@ using PlayStore.Project.DataAccess.DataModel;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
+using PlayStore.Project.ViewModels.PlayStore.Project.ViewModel.UserPage;
 
 namespace PlayStore.Project.Controllers
 {
@@ -203,6 +204,59 @@ namespace PlayStore.Project.Controllers
             return View(model);
         }
 
+        // GET: /Account/UpdatePersonalInfomation
+        [AllowAnonymous]
+        public async Task<ActionResult> UpdatePersonalInfomation(string userId)
+        {
+            //get personal infomation user by user id
+            ApplicationUser user = await UserManager.FindByIdAsync(userId);
+
+            //assign to model variable
+            UpdatePersonalViewModel model = new UpdatePersonalViewModel()
+            {
+                Email = user.Email,
+                FullName = user.FullName,
+                Address = user.Address,
+                BirthDate = user.BirthDate,
+                LocationID = user.LocationID,
+                LocationParentID = user.LocationParentID,
+                PhoneNumber = user.PhoneNumber
+            };
+            return PartialView(model);
+        }
+
+        // POST: /Account/UpdatePersonalInfomation
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> UpdatePersonalInfomation(UpdatePersonalViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                //update infomation
+                DiaGameEntities db = new DiaGameEntities();
+                try
+                {
+                    var result = db.Database.ExecuteSqlCommand("update_user_personal_information @email, @full_name, @birth_date, @address, @city_id, @state_id, @phone_number",
+                    new SqlParameter("@email", model.Email),
+                    new SqlParameter("@full_name", model.FullName),
+                    new SqlParameter("@birth_date", model.BirthDate),
+                    new SqlParameter("@address", model.Address),
+                    new SqlParameter("@city_id", model.LocationParentID),
+                    new SqlParameter("@state_id", model.LocationID),
+                    new SqlParameter("@phone_number", model.PhoneNumber));
+
+                    //reload
+                    return RedirectToAction("Index", "Manage");
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+            }
+            return PartialView(model);
+        }
+
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
@@ -388,7 +442,18 @@ namespace PlayStore.Project.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    EmailConfirmed = true,
+                    Address = model.Address,
+                    FullName = model.FullName,
+                    BirthDate = model.BirthDate,
+                    PhoneNumber = model.PhoneNumber,
+                    LocationID = model.LocationID,
+                    LocationParentID = model.LocationParentID
+                };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

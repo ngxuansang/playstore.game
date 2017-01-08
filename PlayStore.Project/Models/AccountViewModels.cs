@@ -1,10 +1,19 @@
-﻿using System;
+﻿using PlayStore.Project.ViewModels.PlayStore.Project.ViewModel.UserPage;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace PlayStore.Project.Models
 {
-    public class ExternalLoginConfirmationViewModel
+    public class UpdatePersonalViewModel : PersonalInformation
+    {
+        [Required]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+    }
+
+    public class ExternalLoginConfirmationViewModel : PersonalInformation
     {
         [Required]
         [Display(Name = "Email")]
@@ -64,7 +73,7 @@ namespace PlayStore.Project.Models
         public bool RememberMe { get; set; }
     }
 
-    public class RegisterViewModel
+    public class RegisterViewModel : PersonalInformation
     {
         [Required]
         [EmailAddress]
@@ -81,30 +90,6 @@ namespace PlayStore.Project.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-
-        [Display(Name = "User name")]
-        [Required]
-        public string FullName { get; set; }
-
-        [Display(Name = "Date of birth")]
-        [Required]
-        public DateTime BirthDate { get; set; }
-
-        [Display(Name = "City")]
-        [Required]
-        [Range(1, 999999999, ErrorMessage = "City must be selected")]
-        public long LocationParentID { get; set; }
-
-        [Display(Name = "State")]
-        [Range(1, 999999999, ErrorMessage = "State must be selected")]
-        [Required]
-        public long LocationID { get; set; }
-
-        [Required]
-        public string Address { get; set; }
-
-        [Required]
-        public string PhoneNumber { get; set; }
     }
 
     public class ResetPasswordViewModel

@@ -182,7 +182,7 @@
         <!-- Page -->
         <div class="page-wrapper">
             <!-- Header -->
-            <header class="page-header variant-1 fullboxed sticky smart">
+            <header class="page-header variant-2 fullboxed sticky smart">
                 <div class="navbar">
                     <div class="container">
                         <!-- Menu Toggle -->
@@ -1178,5 +1178,13 @@
     @RenderSection("js", false)
     @RenderSection("scripts", required: false)
     <script src="~/Assets/JsController/NavbarJS.js"></script>
+    <script>
+        var google_text = $('button[id="Google"]').text();
+        var facebook_text = $('button[id="Facebook"]').text();
+        $('button[id="Google"]').addClass('btn-google');
+        $('button[id="Facebook"]').addClass('btn-facebook');
+        $('button[id="Google"]').html('<i class="fa fa-google-plus" aria-hidden="true"></i> ' + google_text + '+');
+        $('button[id="Facebook"]').html('<i class="fa fa-facebook" aria-hidden="true"></i> ' + facebook_text);
+    </script>
 </body>
 </html>

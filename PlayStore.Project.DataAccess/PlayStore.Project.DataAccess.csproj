@@ -52,6 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataModel\Carousel_Models\Carousel.cs" />
+    <Compile Include="DataModel\Carousel_Models\CarouselContent.cs" />
     <Compile Include="DataModel\Category.cs" />
     <Compile Include="DataModel\Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

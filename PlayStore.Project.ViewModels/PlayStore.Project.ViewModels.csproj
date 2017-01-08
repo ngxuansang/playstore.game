@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PlayStore.Project.ViewModel.UserPage\HomeControllerModel.cs" />
+    <Compile Include="PlayStore.Project.ViewModel.UserPage\ManageViewModel.cs" />
+    <Compile Include="PlayStore.Project.ViewModel.UserPage\PersonalInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

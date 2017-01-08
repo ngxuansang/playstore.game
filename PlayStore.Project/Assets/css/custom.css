@@ -1,26 +1,61 @@
-﻿.account-title{
+﻿.account-title {
     white-space: nowrap;
     font-size: 15px;
 }
 
-.btn-full-width{
+.btn-full-width {
     width: 100%;
 }
 
-.btn{
+.btn {
     text-transform: capitalize;
 }
 
-.btn-google{
+.btn-google {
     background-color: #cf4332 !important;
     color: #fff !important;
     border: 1px solid #cf4332 !important;
     text-transform: none;
 }
 
-.btn-facebook{
-     background-color: #4e71a4 !important;
+.btn-facebook {
+    background-color: #4e71a4 !important;
     color: #fff !important;
     border: 1px solid #4e71a4 !important;
     text-transform: none;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    cursor: not-allowed;
+    background-color: #f7f7f7;
+    opacity: 1;
+}
+
+#FullName {
+    text-transform: capitalize;
+}
+
+.header-account .dropdown-container form {
+    margin: 0;
+}
+
+.header-account .dropdown-container .title {
+    font-size: 20px;
+    line-height: normal;
+    color: #191919;
+    font-weight: 700;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.mainSlider .swiper-container .caption {
+    position: absolute;
+    top: 50% !important;
+    left: 10%;
+    width: 50%;
+    text-align: left;
+    background: #f82e56;
+    padding: 1vw 2vw 2vw;
+    transform: translate(0,-50%);
 }

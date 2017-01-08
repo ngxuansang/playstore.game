@@ -54,12 +54,20 @@
     <script src="~/Assets/js/megamenu.min.js"></script>
     <script src="~/Assets/js/tools.min.js"></script>
     <script src="~/Assets/js/app.js"></script>
+    <script src="~/Assets/JsController/RegisterJS.js"></script>
     <script>
         $(document).ready(function () {
             $('header').attr('class', 'page-header variant-2 fullboxed sticky smart');
         });
         $('label').append(' <span class="required">*</span>');
     </script>
+}
+@using PlayStore.Project.Models;
+@using PlayStore.Project.DataAccess.DataModel;
+@{
+    DiaGameEntities db = new DiaGameEntities();
+    var Cities = db.Database.SqlQuery<Location>("get_city").Select(x => new SelectListItem() { Text = x.LocationName, Value = x.ID.ToString() });
+    IEnumerable<SelectListItem> States = db.Database.SqlQuery<Location>($"dbo.get_state_by_city @cityID = {Model.LocationParentID}").Select(x => new SelectListItem() { Text = x.LocationName, Value = x.ID.ToString() });
 }
 
 <main class="page-main">
@@ -74,15 +82,15 @@
     <div class="block">
         <div class="container">
             <div class="form-card">
-                <h4>Associate your @ViewBag.LoginProvider account</h4>
+                <h4>Associate Your @ViewBag.LoginProvider Account</h4>
                 @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
 
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <p class="text-info">
+                    <p class="text-success">
                         You've successfully authenticated with <strong>@ViewBag.LoginProvider</strong>.
-                        Please enter a user name for this site below and click the Register button to finish
+                        Please fill infomations for this site below and click the Register button to finish
                         logging in.
                     </p>
                     <div class="form-group">
@@ -92,6 +100,55 @@
                             @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.FullName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", @style = "text-transform: capitalize;" })
+                            @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.BirthDate, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.BirthDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.LocationParentID, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.LocationParentID, Cities, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.LocationParentID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.LocationID, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.LocationID, States, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.LocationID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <input type="submit" class="btn btn-default" value="Register" />
@@ -102,11 +159,6 @@
         </div>
     </div>
 </main>
-
-
-
-
-
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -1,0 +1,80 @@
+﻿@using PlayStore.Project.Models;
+@using PlayStore.Project.DataAccess.DataModel;
+@model UpdatePersonalViewModel
+
+@{ 
+    DiaGameEntities db = new DiaGameEntities();
+    var Cities = db.Database.SqlQuery<Location>("get_city").Select(x => new SelectListItem() { Text = x.LocationName, Value = x.ID.ToString() });
+    IEnumerable<SelectListItem> States = db.Database.SqlQuery<Location>($"dbo.get_state_by_city @cityID = {Model.LocationParentID}").Select(x => new SelectListItem() { Text = x.LocationName, Value = x.ID.ToString() });
+}
+
+@using (Html.BeginForm("UpdatePersonalInfomation", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="form-group">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @readonly= "true" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.FullName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.BirthDate, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.BirthDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.LocationParentID, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.LocationParentID, Cities, new { @class = "form-control", data_city_id_selected = Model.LocationParentID })
+            @Html.ValidationMessageFor(m => m.LocationParentID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.LocationID, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.LocationID, States, new { @class = "form-control", data_state_id_selected = Model.LocationID })
+            @Html.ValidationMessageFor(m => m.LocationID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-block">Update</button>
+        </div>
+    </div>
+
+}
