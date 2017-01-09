@@ -249,6 +249,7 @@
     <Content Include="Assets\css\style.css" />
     <Content Include="Assets\css\tools.css" />
     <Content Include="Assets\fonts\css.css" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\fonts\icomoon-reg\fonts\icomoon-regdef5.svg" />
     <Content Include="Assets\fonts\icomoon-reg\style.css" />
     <Content Include="Assets\images\404-bg.jpg" />
@@ -537,6 +538,8 @@
     <Content Include="Assets\js\vendor\swiper\swiper.min.css" />
     <Content Include="Assets\js\vendor\swiper\swiper.min.js" />
     <Content Include="Assets\js\vendor\tocca\tocca.min.js" />
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -597,6 +600,8 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-touch.min.js.map" />
@@ -653,6 +658,10 @@
     <Content Include="font-awesome-4.7.0\font-awesome-4.7.0\scss\_screen-reader.scss" />
     <Content Include="font-awesome-4.7.0\font-awesome-4.7.0\scss\_stacked.scss" />
     <Content Include="font-awesome-4.7.0\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\PlayStoreProfile.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -1398,6 +1407,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
