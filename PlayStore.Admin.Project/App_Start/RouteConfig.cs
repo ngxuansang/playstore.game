@@ -16,8 +16,28 @@ namespace PlayStore.Admin.Project
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "SignIn", id = UrlParameter.Optional }
+                defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }
+                //defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            //// Add this code to handle non-existing urls
+            //routes.MapRoute(
+            //    name: "404-PageNotFound",
+            //    // This will handle any non-existing urls
+            //    url: "/{404}",
+            //    // "Shared" is the name of your error controller, and "Error" is the action/page
+            //    // that handles all your custom errors
+            //    defaults: new { controller = "Home", action = "Error404", id = UrlParameter.Optional }
+            //);
+
+            //routes.MapRoute(
+            //    name: "500-PageError",
+            //    // This will handle any non-existing urls
+            //    url: "/{500}",
+            //    // "Shared" is the name of your error controller, and "Error" is the action/page
+            //    // that handles all your custom errors
+            //    defaults: new { controller = "Home", action = "Error500", id = UrlParameter.Optional }
+            //);
         }
     }
 }

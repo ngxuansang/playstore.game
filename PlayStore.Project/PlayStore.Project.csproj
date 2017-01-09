@@ -517,6 +517,7 @@
     <Content Include="Assets\js\vendor\bootstrap-tabcollapse\bootstrap-tabcollapse.js" />
     <Content Include="Assets\js\vendor\bootstrap\bootstrap.min.css" />
     <Content Include="Assets\js\vendor\bootstrap\bootstrap.min.js" />
+    <Content Include="Assets\js\vendor\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\js\vendor\countdown\jquery.countdown.min.js" />
     <Content Include="Assets\js\vendor\darktooltip\dist\darktooltip.css" />
     <Content Include="Assets\js\vendor\darktooltip\dist\jquery.darktooltip.js" />
@@ -662,6 +663,10 @@
     <Content Include="Assets\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Assets\js\vendor\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\js\vendor\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\js\vendor\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\js\vendor\bootstrap\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\PlayStoreProfile.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

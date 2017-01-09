@@ -8,3 +8,13 @@ c:\users\windows\documents\visual studio 2015\Projects\PlayStore.Project\PlaySto
 c:\users\windows\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.DataAccess\obj\Debug\PlayStore.Project.DataAccess.csprojResolveAssemblyReference.cache
 c:\users\windows\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.DataAccess\obj\Debug\PlayStore.Project.DataAccess.dll
 c:\users\windows\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.DataAccess\obj\Debug\PlayStore.Project.DataAccess.pdb
+D:\Projects\playstore.game\PlayStore.Project.DataAccess\obj\Debug\PlayStore.Project.DataAccess.csprojResolveAssemblyReference.cache
+D:\Projects\playstore.game\PlayStore.Project.DataAccess\obj\Debug\PlayStore.Project.DataAccess.dll
+D:\Projects\playstore.game\PlayStore.Project.DataAccess\obj\Debug\PlayStore.Project.DataAccess.pdb
+D:\Projects\playstore.game\PlayStore.Project.DataAccess\bin\Debug\PlayStore.Project.DataAccess.dll.config
+D:\Projects\playstore.game\PlayStore.Project.DataAccess\bin\Debug\PlayStore.Project.DataAccess.dll
+D:\Projects\playstore.game\PlayStore.Project.DataAccess\bin\Debug\PlayStore.Project.DataAccess.pdb
+D:\Projects\playstore.game\PlayStore.Project.DataAccess\bin\Debug\EntityFramework.dll
+D:\Projects\playstore.game\PlayStore.Project.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\playstore.game\PlayStore.Project.DataAccess\bin\Debug\EntityFramework.xml
+D:\Projects\playstore.game\PlayStore.Project.DataAccess\bin\Debug\EntityFramework.SqlServer.xml

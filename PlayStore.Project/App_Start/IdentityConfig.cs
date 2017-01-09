@@ -13,6 +13,7 @@ using Microsoft.Owin.Security;
 using PlayStore.Project.Models;
 using System.Net.Mail;
 using System.Net;
+using PlayStore.Project.DataAccess.Email;
 
 namespace PlayStore.Project
 {
@@ -21,23 +22,7 @@ namespace PlayStore.Project
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
-            MailMessage mailObject = new MailMessage("lalaconna@gmail.com", message.Destination);
-            mailObject.IsBodyHtml = true;
-            mailObject.Subject = message.Subject;
-            mailObject.Body = message.Body;
-            using (SmtpClient smtp = new SmtpClient())
-            {
-                var credential = new NetworkCredential
-                {
-                    UserName = "lalaconna@gmail.com",  // replace with valid value
-                    Password = "sang678!@#"  // replace with valid value
-                };
-                smtp.Credentials = credential;
-                smtp.Port = 587;
-                smtp.Host = "smtp.gmail.com";
-                smtp.EnableSsl = true;
-                smtp.Send(mailObject);
-            }
+            Email.Send(message.Destination, message.Subject, message.Body);
             return Task.FromResult(0);
         }
     }

@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using PlayStore.Admin.Project.Models;
+using PlayStore.Project.DataAccess.Email;
 
 namespace PlayStore.Admin.Project
 {
@@ -19,6 +20,7 @@ namespace PlayStore.Admin.Project
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
+            Email.Send(message.Destination, message.Subject, message.Body);
             return Task.FromResult(0);
         }
     }

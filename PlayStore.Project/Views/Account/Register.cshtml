@@ -66,7 +66,7 @@
     <script src="~/Assets/JsController/RegisterJS.js"></script>
     <script>
         $(document).ready(function () {
-            $('#datetimepicker4').datetimepicker({
+            $('#BirthDate').datetimepicker({
                 format: 'MM/DD/YYYY',
             });
             $('header').attr('class', 'page-header variant-2 fullboxed sticky smart');
@@ -122,26 +122,26 @@
                     <div class="form-group">
                         @Html.LabelFor(m => m.BirthDate, new { @class = "col-md-2 control-label" })
                         <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control", @id = "datetimepicker4" })
+                            @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control" })
                             @Html.ValidationMessageFor(m => m.BirthDate, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
-                            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.LocationParentID, new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
-                                @Html.DropDownListFor(m => m.LocationParentID, Cities, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(m => m.LocationParentID, "", new { @class = "text-danger" })
-                            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.LocationParentID, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.LocationParentID, Cities, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.LocationParentID, "", new { @class = "text-danger" })
                         </div>
+                    </div>
 
                         <div class="form-group">
                             @Html.LabelFor(m => m.LocationID, new { @class = "col-md-2 control-label" })

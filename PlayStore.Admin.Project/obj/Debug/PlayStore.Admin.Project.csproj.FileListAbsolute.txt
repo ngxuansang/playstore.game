@@ -94,3 +94,7 @@ D:\Projects\playstore.game\PlayStore.Admin.Project\bin\Microsoft.Owin.Security.M
 D:\Projects\playstore.game\PlayStore.Admin.Project\obj\Debug\PlayStore.Admin.Project.csprojResolveAssemblyReference.cache
 D:\Projects\playstore.game\PlayStore.Admin.Project\obj\Debug\PlayStore.Admin.Project.dll
 D:\Projects\playstore.game\PlayStore.Admin.Project\obj\Debug\PlayStore.Admin.Project.pdb
+D:\Projects\playstore.game\PlayStore.Admin.Project\bin\PlayStore.Project.DataAccess.dll
+D:\Projects\playstore.game\PlayStore.Admin.Project\bin\PlayStore.Project.ViewModels.dll
+D:\Projects\playstore.game\PlayStore.Admin.Project\bin\PlayStore.Project.DataAccess.pdb
+D:\Projects\playstore.game\PlayStore.Admin.Project\bin\PlayStore.Project.ViewModels.pdb

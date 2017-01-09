@@ -35,20 +35,6 @@
     text-transform: capitalize;
 }
 
-.header-account .dropdown-container form {
-    margin: 0;
-}
-
-.header-account .dropdown-container .title {
-    font-size: 20px;
-    line-height: normal;
-    color: #191919;
-    font-weight: 700;
-    margin-bottom: 0px;
-    text-transform: uppercase;
-    text-align: center;
-}
-
 .mainSlider .swiper-container .caption {
     position: absolute;
     top: 50% !important;

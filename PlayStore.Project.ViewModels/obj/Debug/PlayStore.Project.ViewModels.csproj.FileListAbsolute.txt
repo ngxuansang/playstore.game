@@ -5,3 +5,10 @@ C:\Users\WINDOWS\documents\visual studio 2015\Projects\PlayStore.Project\PlaySto
 C:\Users\WINDOWS\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.ViewModels\obj\Debug\PlayStore.Project.ViewModels.csprojResolveAssemblyReference.cache
 C:\Users\WINDOWS\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.ViewModels\obj\Debug\PlayStore.Project.ViewModels.dll
 C:\Users\WINDOWS\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.ViewModels\obj\Debug\PlayStore.Project.ViewModels.pdb
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\bin\Debug\PlayStore.Project.ViewModels.dll
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\bin\Debug\PlayStore.Project.ViewModels.pdb
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\bin\Debug\PlayStore.Project.DataAccess.dll
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\bin\Debug\PlayStore.Project.DataAccess.pdb
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\obj\Debug\PlayStore.Project.ViewModels.csprojResolveAssemblyReference.cache
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\obj\Debug\PlayStore.Project.ViewModels.dll
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\obj\Debug\PlayStore.Project.ViewModels.pdb

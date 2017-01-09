@@ -8,35 +8,35 @@ namespace PlayStore.Admin.Project.Controllers
 {
     public class HomeController : Controller
     {
-        [AllowAnonymous]
-        public ActionResult SignIn()
-        {
-            return View();
-        }
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult SignIn()
-        //{
-        //    return View();
-        //}
-
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
 
+        public ActionResult Error404()
+        {
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Error500()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
+
+
+        //public ActionResult About()
+        //{
+        //    ViewBag.Message = "Your application description page.";
+
+        //    return View();
+        //}
+
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Your contact page.";
+
+        //    return View();
+        //}
     }
 }

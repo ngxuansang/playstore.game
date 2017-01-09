@@ -15,6 +15,7 @@ namespace PlayStore.Project.ViewModels.PlayStore.Project.ViewModel.UserPage
 
         [Display(Name = "Date of birth")]
         [Required]
+        [DataType(DataType.Date)]
         public DateTime? BirthDate { get; set; }
 
         [Display(Name = "City")]

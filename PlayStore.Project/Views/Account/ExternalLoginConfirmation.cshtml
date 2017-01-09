@@ -31,6 +31,9 @@
 
     <!-- Icon Font -->
     <link href="~/Assets/fonts/icomoon-reg/style.css" rel="stylesheet">
+
+    <!--Datetime picker-->
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
 }
 
 @section js{
@@ -54,9 +57,19 @@
     <script src="~/Assets/js/megamenu.min.js"></script>
     <script src="~/Assets/js/tools.min.js"></script>
     <script src="~/Assets/js/app.js"></script>
+
+    <!--Datetime picker-->
+    <script type="text/javascript" src="~/Scripts/moment.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+
+    <!--Controller-->
     <script src="~/Assets/JsController/RegisterJS.js"></script>
+
     <script>
         $(document).ready(function () {
+            $('#BirthDate').datetimepicker({
+                format: 'MM/DD/YYYY',
+            });
             $('header').attr('class', 'page-header variant-2 fullboxed sticky smart');
         });
         $('label').append(' <span class="required">*</span>');
