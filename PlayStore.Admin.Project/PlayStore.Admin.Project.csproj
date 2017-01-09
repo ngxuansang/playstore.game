@@ -1,0 +1,1470 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FC56BA12-A015-47ED-8565-80EC403FFC4B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PlayStore.Admin.Project</RootNamespace>
+    <AssemblyName>PlayStore.Admin.Project</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.7\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\alpha.css" />
+    <Content Include="assets\css\alpha.min.css" />
+    <Content Include="assets\css\custom.css" />
+    <Content Include="assets\images\card-image.jpg" />
+    <Content Include="assets\images\card-image2.jpg" />
+    <Content Include="assets\images\card-image3.jpg" />
+    <Content Include="assets\images\card-image4.jpg" />
+    <Content Include="assets\images\card-image5.jpg" />
+    <Content Include="assets\images\card-image6.jpg" />
+    <Content Include="assets\images\crop.jpg" />
+    <Content Include="assets\images\google.png" />
+    <Content Include="assets\images\ignature.png" />
+    <Content Include="assets\images\mountains1.png" />
+    <Content Include="assets\images\mountains2.jpg" />
+    <Content Include="assets\images\mountains3.png" />
+    <Content Include="assets\images\mountains4.png" />
+    <Content Include="assets\images\mountains5.png" />
+    <Content Include="assets\images\profile-image-1.png" />
+    <Content Include="assets\images\profile-image-2.png" />
+    <Content Include="assets\images\profile-image-3.jpg" />
+    <Content Include="assets\images\profile-image.png" />
+    <Content Include="assets\images\profile_bg.png" />
+    <Content Include="assets\images\sample-1.jpg" />
+    <Content Include="assets\images\search_image.jpg" />
+    <Content Include="assets\images\search_images\1.jpg" />
+    <Content Include="assets\images\search_images\10.jpg" />
+    <Content Include="assets\images\search_images\11.jpeg" />
+    <Content Include="assets\images\search_images\12.jpg" />
+    <Content Include="assets\images\search_images\2.jpg" />
+    <Content Include="assets\images\search_images\3.jpg" />
+    <Content Include="assets\images\search_images\4.jpg" />
+    <Content Include="assets\images\search_images\5.jpg" />
+    <Content Include="assets\images\search_images\6.jpg" />
+    <Content Include="assets\images\search_images\7.jpg" />
+    <Content Include="assets\images\search_images\8.jpg" />
+    <Content Include="assets\images\search_images\9.jpg" />
+    <Content Include="assets\images\thumbs-up.jpg" />
+    <Content Include="assets\images\typography.png" />
+    <Content Include="assets\images\upload.png" />
+    <Content Include="assets\images\video_placeholder.png" />
+    <Content Include="assets\images\weather.jpg" />
+    <Content Include="assets\images\weather2.jpg" />
+    <Content Include="assets\images\wizard-image.png" />
+    <Content Include="assets\images\zoom\large\image1.jpg" />
+    <Content Include="assets\images\zoom\large\image2.jpg" />
+    <Content Include="assets\images\zoom\large\image3.jpg" />
+    <Content Include="assets\images\zoom\large\image4.jpg" />
+    <Content Include="assets\images\zoom\small\image1.jpg" />
+    <Content Include="assets\images\zoom\small\image2.jpg" />
+    <Content Include="assets\images\zoom\small\image3.jpg" />
+    <Content Include="assets\images\zoom\small\image4.jpg" />
+    <Content Include="assets\js\alpha.js" />
+    <Content Include="assets\js\alpha.min.js" />
+    <Content Include="assets\js\custom.js" />
+    <Content Include="assets\js\pages\calendar.js" />
+    <Content Include="assets\js\pages\charts.js" />
+    <Content Include="assets\js\pages\coming-soon.js" />
+    <Content Include="assets\js\pages\contact.js" />
+    <Content Include="assets\js\pages\dashboard.js" />
+    <Content Include="assets\js\pages\dialogs.js" />
+    <Content Include="assets\js\pages\form-image-crop.js" />
+    <Content Include="assets\js\pages\form-image-zoom.js" />
+    <Content Include="assets\js\pages\form-input-mask.js" />
+    <Content Include="assets\js\pages\form-select2.js" />
+    <Content Include="assets\js\pages\form-wizard.js" />
+    <Content Include="assets\js\pages\form_elements.js" />
+    <Content Include="assets\js\pages\gallery.js" />
+    <Content Include="assets\js\pages\icons.js" />
+    <Content Include="assets\js\pages\mailbox.js" />
+    <Content Include="assets\js\pages\maps-google.js" />
+    <Content Include="assets\js\pages\maps-vector.js" />
+    <Content Include="assets\js\pages\media.js" />
+    <Content Include="assets\js\pages\miscellaneous-code-editor.js" />
+    <Content Include="assets\js\pages\miscellaneous-idle-timer.js" />
+    <Content Include="assets\js\pages\miscellaneous-masonry.js" />
+    <Content Include="assets\js\pages\miscellaneous-nestable.js" />
+    <Content Include="assets\js\pages\miscellaneous-sweetalert.js" />
+    <Content Include="assets\js\pages\pattern-lock-screen.js" />
+    <Content Include="assets\js\pages\table-data.js" />
+    <Content Include="assets\js\pages\todo.js" />
+    <Content Include="assets\js\pages\ui-accordions.js" />
+    <Content Include="assets\js\pages\ui-badges.js" />
+    <Content Include="assets\js\pages\ui-buttons.js" />
+    <Content Include="assets\js\pages\ui-carousel.js" />
+    <Content Include="assets\js\pages\ui-chips.js" />
+    <Content Include="assets\js\pages\ui-collections.js" />
+    <Content Include="assets\js\pages\ui-dropdown.js" />
+    <Content Include="assets\js\pages\ui-modals.js" />
+    <Content Include="assets\js\pages\ui-parallax.js" />
+    <Content Include="assets\js\pages\ui-preloader.js" />
+    <Content Include="assets\js\pages\ui-shadow.js" />
+    <Content Include="assets\js\pages\ui-tabs.js" />
+    <Content Include="assets\js\pages\ui-typography.js" />
+    <Content Include="assets\js\pages\waves.js" />
+    <Content Include="assets\plugins\chart.js\chart.js" />
+    <Content Include="assets\plugins\chart.js\chart.min.js" />
+    <Content Include="assets\plugins\codemirror\codemirror.css" />
+    <Content Include="assets\plugins\codemirror\codemirror.js" />
+    <Content Include="assets\plugins\codemirror\mode\apl\apl.js" />
+    <Content Include="assets\plugins\codemirror\mode\apl\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\asciiarmor\asciiarmor.js" />
+    <Content Include="assets\plugins\codemirror\mode\asciiarmor\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\asn.1\asn.1.js" />
+    <Content Include="assets\plugins\codemirror\mode\asn.1\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\asterisk\asterisk.js" />
+    <Content Include="assets\plugins\codemirror\mode\asterisk\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\brainfuck\brainfuck.js" />
+    <Content Include="assets\plugins\codemirror\mode\brainfuck\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\clike\clike.js" />
+    <Content Include="assets\plugins\codemirror\mode\clike\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\clike\scala.html" />
+    <Content Include="assets\plugins\codemirror\mode\clike\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\clojure\clojure.js" />
+    <Content Include="assets\plugins\codemirror\mode\clojure\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\cmake\cmake.js" />
+    <Content Include="assets\plugins\codemirror\mode\cmake\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\cobol\cobol.js" />
+    <Content Include="assets\plugins\codemirror\mode\cobol\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\coffeescript\coffeescript.js" />
+    <Content Include="assets\plugins\codemirror\mode\coffeescript\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\commonlisp\commonlisp.js" />
+    <Content Include="assets\plugins\codemirror\mode\commonlisp\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\crystal\crystal.js" />
+    <Content Include="assets\plugins\codemirror\mode\crystal\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\css\css.js" />
+    <Content Include="assets\plugins\codemirror\mode\css\gss.html" />
+    <Content Include="assets\plugins\codemirror\mode\css\gss_test.js" />
+    <Content Include="assets\plugins\codemirror\mode\css\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\css\less.html" />
+    <Content Include="assets\plugins\codemirror\mode\css\less_test.js" />
+    <Content Include="assets\plugins\codemirror\mode\css\scss.html" />
+    <Content Include="assets\plugins\codemirror\mode\css\scss_test.js" />
+    <Content Include="assets\plugins\codemirror\mode\css\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\cypher\cypher.js" />
+    <Content Include="assets\plugins\codemirror\mode\cypher\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\dart\dart.js" />
+    <Content Include="assets\plugins\codemirror\mode\dart\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\diff\diff.js" />
+    <Content Include="assets\plugins\codemirror\mode\diff\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\django\django.js" />
+    <Content Include="assets\plugins\codemirror\mode\django\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\dockerfile\dockerfile.js" />
+    <Content Include="assets\plugins\codemirror\mode\dockerfile\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\dtd\dtd.js" />
+    <Content Include="assets\plugins\codemirror\mode\dtd\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\dylan\dylan.js" />
+    <Content Include="assets\plugins\codemirror\mode\dylan\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\dylan\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\d\d.js" />
+    <Content Include="assets\plugins\codemirror\mode\d\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\ebnf\ebnf.js" />
+    <Content Include="assets\plugins\codemirror\mode\ebnf\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\ecl\ecl.js" />
+    <Content Include="assets\plugins\codemirror\mode\ecl\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\eiffel\eiffel.js" />
+    <Content Include="assets\plugins\codemirror\mode\eiffel\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\elm\elm.js" />
+    <Content Include="assets\plugins\codemirror\mode\elm\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\erlang\erlang.js" />
+    <Content Include="assets\plugins\codemirror\mode\erlang\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\factor\factor.js" />
+    <Content Include="assets\plugins\codemirror\mode\factor\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\fcl\fcl.js" />
+    <Content Include="assets\plugins\codemirror\mode\fcl\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\forth\forth.js" />
+    <Content Include="assets\plugins\codemirror\mode\forth\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\fortran\fortran.js" />
+    <Content Include="assets\plugins\codemirror\mode\fortran\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\gas\gas.js" />
+    <Content Include="assets\plugins\codemirror\mode\gas\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\gfm\gfm.js" />
+    <Content Include="assets\plugins\codemirror\mode\gfm\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\gfm\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\gherkin\gherkin.js" />
+    <Content Include="assets\plugins\codemirror\mode\gherkin\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\go\go.js" />
+    <Content Include="assets\plugins\codemirror\mode\go\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\groovy\groovy.js" />
+    <Content Include="assets\plugins\codemirror\mode\groovy\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\haml\haml.js" />
+    <Content Include="assets\plugins\codemirror\mode\haml\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\haml\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\handlebars\handlebars.js" />
+    <Content Include="assets\plugins\codemirror\mode\handlebars\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\haskell-literate\haskell-literate.js" />
+    <Content Include="assets\plugins\codemirror\mode\haskell-literate\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\haskell\haskell.js" />
+    <Content Include="assets\plugins\codemirror\mode\haskell\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\haxe\haxe.js" />
+    <Content Include="assets\plugins\codemirror\mode\haxe\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\htmlembedded\htmlembedded.js" />
+    <Content Include="assets\plugins\codemirror\mode\htmlembedded\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\htmlmixed\htmlmixed.js" />
+    <Content Include="assets\plugins\codemirror\mode\htmlmixed\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\http\http.js" />
+    <Content Include="assets\plugins\codemirror\mode\http\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\idl\idl.js" />
+    <Content Include="assets\plugins\codemirror\mode\idl\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\javascript\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\javascript\javascript.js" />
+    <Content Include="assets\plugins\codemirror\mode\javascript\json-ld.html" />
+    <Content Include="assets\plugins\codemirror\mode\javascript\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\javascript\typescript.html" />
+    <Content Include="assets\plugins\codemirror\mode\jinja2\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\jinja2\jinja2.js" />
+    <Content Include="assets\plugins\codemirror\mode\jsx\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\jsx\jsx.js" />
+    <Content Include="assets\plugins\codemirror\mode\jsx\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\julia\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\julia\julia.js" />
+    <Content Include="assets\plugins\codemirror\mode\livescript\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\livescript\livescript.js" />
+    <Content Include="assets\plugins\codemirror\mode\lua\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\lua\lua.js" />
+    <Content Include="assets\plugins\codemirror\mode\markdown\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\markdown\markdown.js" />
+    <Content Include="assets\plugins\codemirror\mode\markdown\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\mathematica\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\mathematica\mathematica.js" />
+    <Content Include="assets\plugins\codemirror\mode\mbox\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\mbox\mbox.js" />
+    <Content Include="assets\plugins\codemirror\mode\meta.js" />
+    <Content Include="assets\plugins\codemirror\mode\mirc\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\mirc\mirc.js" />
+    <Content Include="assets\plugins\codemirror\mode\mllike\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\mllike\mllike.js" />
+    <Content Include="assets\plugins\codemirror\mode\modelica\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\modelica\modelica.js" />
+    <Content Include="assets\plugins\codemirror\mode\mscgen\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\mscgen\mscgen.js" />
+    <Content Include="assets\plugins\codemirror\mode\mscgen\mscgen_test.js" />
+    <Content Include="assets\plugins\codemirror\mode\mscgen\msgenny_test.js" />
+    <Content Include="assets\plugins\codemirror\mode\mscgen\xu_test.js" />
+    <Content Include="assets\plugins\codemirror\mode\mumps\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\mumps\mumps.js" />
+    <Content Include="assets\plugins\codemirror\mode\nginx\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\nginx\nginx.js" />
+    <Content Include="assets\plugins\codemirror\mode\nsis\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\nsis\nsis.js" />
+    <Content Include="assets\plugins\codemirror\mode\ntriples\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\ntriples\ntriples.js" />
+    <Content Include="assets\plugins\codemirror\mode\octave\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\octave\octave.js" />
+    <Content Include="assets\plugins\codemirror\mode\oz\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\oz\oz.js" />
+    <Content Include="assets\plugins\codemirror\mode\pascal\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\pascal\pascal.js" />
+    <Content Include="assets\plugins\codemirror\mode\pegjs\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\pegjs\pegjs.js" />
+    <Content Include="assets\plugins\codemirror\mode\perl\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\perl\perl.js" />
+    <Content Include="assets\plugins\codemirror\mode\php\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\php\php.js" />
+    <Content Include="assets\plugins\codemirror\mode\php\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\pig\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\pig\pig.js" />
+    <Content Include="assets\plugins\codemirror\mode\powershell\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\powershell\powershell.js" />
+    <Content Include="assets\plugins\codemirror\mode\powershell\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\properties\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\properties\properties.js" />
+    <Content Include="assets\plugins\codemirror\mode\protobuf\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\protobuf\protobuf.js" />
+    <Content Include="assets\plugins\codemirror\mode\pug\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\pug\pug.js" />
+    <Content Include="assets\plugins\codemirror\mode\puppet\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\puppet\puppet.js" />
+    <Content Include="assets\plugins\codemirror\mode\python\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\python\python.js" />
+    <Content Include="assets\plugins\codemirror\mode\python\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\q\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\q\q.js" />
+    <Content Include="assets\plugins\codemirror\mode\rpm\changes\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\rpm\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\rpm\rpm.js" />
+    <Content Include="assets\plugins\codemirror\mode\rst\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\rst\rst.js" />
+    <Content Include="assets\plugins\codemirror\mode\ruby\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\ruby\ruby.js" />
+    <Content Include="assets\plugins\codemirror\mode\ruby\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\rust\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\rust\rust.js" />
+    <Content Include="assets\plugins\codemirror\mode\rust\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\r\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\r\r.js" />
+    <Content Include="assets\plugins\codemirror\mode\sass\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\sass\sass.js" />
+    <Content Include="assets\plugins\codemirror\mode\sas\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\sas\sas.js" />
+    <Content Include="assets\plugins\codemirror\mode\scheme\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\scheme\scheme.js" />
+    <Content Include="assets\plugins\codemirror\mode\shell\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\shell\shell.js" />
+    <Content Include="assets\plugins\codemirror\mode\shell\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\sieve\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\sieve\sieve.js" />
+    <Content Include="assets\plugins\codemirror\mode\slim\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\slim\slim.js" />
+    <Content Include="assets\plugins\codemirror\mode\slim\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\smalltalk\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\smalltalk\smalltalk.js" />
+    <Content Include="assets\plugins\codemirror\mode\smarty\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\smarty\smarty.js" />
+    <Content Include="assets\plugins\codemirror\mode\solr\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\solr\solr.js" />
+    <Content Include="assets\plugins\codemirror\mode\soy\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\soy\soy.js" />
+    <Content Include="assets\plugins\codemirror\mode\sparql\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\sparql\sparql.js" />
+    <Content Include="assets\plugins\codemirror\mode\spreadsheet\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\spreadsheet\spreadsheet.js" />
+    <Content Include="assets\plugins\codemirror\mode\sql\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\sql\sql.js" />
+    <Content Include="assets\plugins\codemirror\mode\stex\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\stex\stex.js" />
+    <Content Include="assets\plugins\codemirror\mode\stex\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\stylus\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\stylus\stylus.js" />
+    <Content Include="assets\plugins\codemirror\mode\swift\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\swift\swift.js" />
+    <Content Include="assets\plugins\codemirror\mode\tcl\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\tcl\tcl.js" />
+    <Content Include="assets\plugins\codemirror\mode\textile\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\textile\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\textile\textile.js" />
+    <Content Include="assets\plugins\codemirror\mode\tiddlywiki\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\tiddlywiki\tiddlywiki.css" />
+    <Content Include="assets\plugins\codemirror\mode\tiddlywiki\tiddlywiki.js" />
+    <Content Include="assets\plugins\codemirror\mode\tiki\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\tiki\tiki.css" />
+    <Content Include="assets\plugins\codemirror\mode\tiki\tiki.js" />
+    <Content Include="assets\plugins\codemirror\mode\toml\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\toml\toml.js" />
+    <Content Include="assets\plugins\codemirror\mode\tornado\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\tornado\tornado.js" />
+    <Content Include="assets\plugins\codemirror\mode\troff\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\troff\troff.js" />
+    <Content Include="assets\plugins\codemirror\mode\ttcn-cfg\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\ttcn-cfg\ttcn-cfg.js" />
+    <Content Include="assets\plugins\codemirror\mode\ttcn\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\ttcn\ttcn.js" />
+    <Content Include="assets\plugins\codemirror\mode\turtle\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\turtle\turtle.js" />
+    <Content Include="assets\plugins\codemirror\mode\twig\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\twig\twig.js" />
+    <Content Include="assets\plugins\codemirror\mode\vbscript\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\vbscript\vbscript.js" />
+    <Content Include="assets\plugins\codemirror\mode\vb\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\vb\vb.js" />
+    <Content Include="assets\plugins\codemirror\mode\velocity\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\velocity\velocity.js" />
+    <Content Include="assets\plugins\codemirror\mode\verilog\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\verilog\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\verilog\verilog.js" />
+    <Content Include="assets\plugins\codemirror\mode\vhdl\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\vhdl\vhdl.js" />
+    <Content Include="assets\plugins\codemirror\mode\vue\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\vue\vue.js" />
+    <Content Include="assets\plugins\codemirror\mode\webidl\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\webidl\webidl.js" />
+    <Content Include="assets\plugins\codemirror\mode\xml\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\xml\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\xml\xml.js" />
+    <Content Include="assets\plugins\codemirror\mode\xquery\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\xquery\test.js" />
+    <Content Include="assets\plugins\codemirror\mode\xquery\xquery.js" />
+    <Content Include="assets\plugins\codemirror\mode\yacas\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\yacas\yacas.js" />
+    <Content Include="assets\plugins\codemirror\mode\yaml-frontmatter\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\yaml-frontmatter\yaml-frontmatter.js" />
+    <Content Include="assets\plugins\codemirror\mode\yaml\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\yaml\yaml.js" />
+    <Content Include="assets\plugins\codemirror\mode\z80\index.html" />
+    <Content Include="assets\plugins\codemirror\mode\z80\z80.js" />
+    <Content Include="assets\plugins\codemirror\theme\3024-day.css" />
+    <Content Include="assets\plugins\codemirror\theme\3024-night.css" />
+    <Content Include="assets\plugins\codemirror\theme\abcdef.css" />
+    <Content Include="assets\plugins\codemirror\theme\ambiance-mobile.css" />
+    <Content Include="assets\plugins\codemirror\theme\ambiance.css" />
+    <Content Include="assets\plugins\codemirror\theme\base16-dark.css" />
+    <Content Include="assets\plugins\codemirror\theme\base16-light.css" />
+    <Content Include="assets\plugins\codemirror\theme\bespin.css" />
+    <Content Include="assets\plugins\codemirror\theme\blackboard.css" />
+    <Content Include="assets\plugins\codemirror\theme\cobalt.css" />
+    <Content Include="assets\plugins\codemirror\theme\colorforth.css" />
+    <Content Include="assets\plugins\codemirror\theme\dracula.css" />
+    <Content Include="assets\plugins\codemirror\theme\eclipse.css" />
+    <Content Include="assets\plugins\codemirror\theme\elegant.css" />
+    <Content Include="assets\plugins\codemirror\theme\erlang-dark.css" />
+    <Content Include="assets\plugins\codemirror\theme\hopscotch.css" />
+    <Content Include="assets\plugins\codemirror\theme\icecoder.css" />
+    <Content Include="assets\plugins\codemirror\theme\isotope.css" />
+    <Content Include="assets\plugins\codemirror\theme\lesser-dark.css" />
+    <Content Include="assets\plugins\codemirror\theme\liquibyte.css" />
+    <Content Include="assets\plugins\codemirror\theme\material.css" />
+    <Content Include="assets\plugins\codemirror\theme\mbo.css" />
+    <Content Include="assets\plugins\codemirror\theme\mdn-like.css" />
+    <Content Include="assets\plugins\codemirror\theme\midnight.css" />
+    <Content Include="assets\plugins\codemirror\theme\monokai.css" />
+    <Content Include="assets\plugins\codemirror\theme\neat.css" />
+    <Content Include="assets\plugins\codemirror\theme\neo.css" />
+    <Content Include="assets\plugins\codemirror\theme\night.css" />
+    <Content Include="assets\plugins\codemirror\theme\panda-syntax.css" />
+    <Content Include="assets\plugins\codemirror\theme\paraiso-dark.css" />
+    <Content Include="assets\plugins\codemirror\theme\paraiso-light.css" />
+    <Content Include="assets\plugins\codemirror\theme\pastel-on-dark.css" />
+    <Content Include="assets\plugins\codemirror\theme\railscasts.css" />
+    <Content Include="assets\plugins\codemirror\theme\rubyblue.css" />
+    <Content Include="assets\plugins\codemirror\theme\seti.css" />
+    <Content Include="assets\plugins\codemirror\theme\solarized.css" />
+    <Content Include="assets\plugins\codemirror\theme\the-matrix.css" />
+    <Content Include="assets\plugins\codemirror\theme\tomorrow-night-bright.css" />
+    <Content Include="assets\plugins\codemirror\theme\tomorrow-night-eighties.css" />
+    <Content Include="assets\plugins\codemirror\theme\ttcn.css" />
+    <Content Include="assets\plugins\codemirror\theme\twilight.css" />
+    <Content Include="assets\plugins\codemirror\theme\vibrant-ink.css" />
+    <Content Include="assets\plugins\codemirror\theme\xq-dark.css" />
+    <Content Include="assets\plugins\codemirror\theme\xq-light.css" />
+    <Content Include="assets\plugins\codemirror\theme\yeti.css" />
+    <Content Include="assets\plugins\codemirror\theme\zenburn.css" />
+    <Content Include="assets\plugins\counter-up-master\jquery.counterup.js" />
+    <Content Include="assets\plugins\counter-up-master\jquery.counterup.min.js" />
+    <Content Include="assets\plugins\curvedlines\curvedLines.js" />
+    <Content Include="assets\plugins\d3\d3.js" />
+    <Content Include="assets\plugins\d3\d3.min.js" />
+    <Content Include="assets\plugins\datatables\css\jquery.dataTables.css" />
+    <Content Include="assets\plugins\datatables\css\jquery.dataTables.min.css" />
+    <Content Include="assets\plugins\datatables\css\jquery.dataTables_themeroller.css" />
+    <Content Include="assets\plugins\datatables\images\favicon.ico" />
+    <Content Include="assets\plugins\datatables\images\sort_asc.png" />
+    <Content Include="assets\plugins\datatables\images\sort_asc_disabled.png" />
+    <Content Include="assets\plugins\datatables\images\sort_both.png" />
+    <Content Include="assets\plugins\datatables\images\sort_desc.png" />
+    <Content Include="assets\plugins\datatables\images\sort_desc_disabled.png" />
+    <Content Include="assets\plugins\datatables\js\jquery.dataTables.js" />
+    <Content Include="assets\plugins\datatables\js\jquery.dataTables.min.js" />
+    <Content Include="assets\plugins\dropzone\basic.min.css" />
+    <Content Include="assets\plugins\dropzone\dropzone-amd-module.min.js" />
+    <Content Include="assets\plugins\dropzone\dropzone.min.css" />
+    <Content Include="assets\plugins\dropzone\dropzone.min.js" />
+    <Content Include="assets\plugins\elevatezoom\jquery.elevatezoom-3.0.8.min.js" />
+    <Content Include="assets\plugins\elevatezoom\jquery.elevatezoom.js" />
+    <Content Include="assets\plugins\flot\excanvas.js" />
+    <Content Include="assets\plugins\flot\excanvas.min.js" />
+    <Content Include="assets\plugins\flot\jquery.colorhelpers.js" />
+    <Content Include="assets\plugins\flot\jquery.colorhelpers.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.canvas.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.canvas.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.categories.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.categories.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.crosshair.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.crosshair.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.errorbars.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.errorbars.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.fillbetween.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.fillbetween.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.image.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.image.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.navigate.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.navigate.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.pie.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.resize.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.selection.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.selection.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.stack.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.stack.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.symbol.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.symbol.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.threshold.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.threshold.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.time.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.time.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.tooltip.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.tooltip.source.js" />
+    <Content Include="assets\plugins\fullcalendar\fullcalendar.css" />
+    <Content Include="assets\plugins\fullcalendar\fullcalendar.js" />
+    <Content Include="assets\plugins\fullcalendar\fullcalendar.min.css" />
+    <Content Include="assets\plugins\fullcalendar\fullcalendar.min.js" />
+    <Content Include="assets\plugins\fullcalendar\fullcalendar.print.css" />
+    <Content Include="assets\plugins\fullcalendar\moment.min.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-apollo.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-basic.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-clj.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-css.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-dart.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-erlang.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-go.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-hs.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-lisp.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-llvm.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-lua.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-matlab.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-ml.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-mumps.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-n.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-pascal.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-proto.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-r.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-rd.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-scala.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-sql.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-tcl.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-tex.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-vb.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-vhdl.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-wiki.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-xq.js" />
+    <Content Include="assets\plugins\google-code-prettify\lang-yaml.js" />
+    <Content Include="assets\plugins\google-code-prettify\prettify.css" />
+    <Content Include="assets\plugins\google-code-prettify\prettify.js" />
+    <Content Include="assets\plugins\google-code-prettify\run_prettify.js" />
+    <Content Include="assets\plugins\google-grid-gallery\css\component.css" />
+    <Content Include="assets\plugins\google-grid-gallery\css\demo.css" />
+    <Content Include="assets\plugins\google-grid-gallery\fonts\bpicons\bpicons.svg" />
+    <Content Include="assets\plugins\google-grid-gallery\fonts\bpicons\license.txt" />
+    <Content Include="assets\plugins\google-grid-gallery\fonts\fontawesome\fontawesome.svg" />
+    <Content Include="assets\plugins\google-grid-gallery\img\large\1.png" />
+    <Content Include="assets\plugins\google-grid-gallery\img\large\2.png" />
+    <Content Include="assets\plugins\google-grid-gallery\img\large\3.png" />
+    <Content Include="assets\plugins\google-grid-gallery\img\large\4.png" />
+    <Content Include="assets\plugins\google-grid-gallery\img\large\5.png" />
+    <Content Include="assets\plugins\google-grid-gallery\img\large\6.png" />
+    <Content Include="assets\plugins\google-grid-gallery\img\thumb\1.png" />
+    <Content Include="assets\plugins\google-grid-gallery\img\thumb\2.png" />
+    <Content Include="assets\plugins\google-grid-gallery\img\thumb\3.png" />
+    <Content Include="assets\plugins\google-grid-gallery\img\thumb\4.png" />
+    <Content Include="assets\plugins\google-grid-gallery\img\thumb\5.png" />
+    <Content Include="assets\plugins\google-grid-gallery\img\thumb\6.png" />
+    <Content Include="assets\plugins\google-grid-gallery\js\cbpGridGallery.js" />
+    <Content Include="assets\plugins\google-grid-gallery\js\classie.js" />
+    <Content Include="assets\plugins\google-grid-gallery\js\imagesloaded.pkgd.min.js" />
+    <Content Include="assets\plugins\google-grid-gallery\js\masonry.pkgd.min.js" />
+    <Content Include="assets\plugins\google-grid-gallery\js\modernizr.custom.js" />
+    <Content Include="assets\plugins\image-cropper\cropper.css" />
+    <Content Include="assets\plugins\image-cropper\cropper.js" />
+    <Content Include="assets\plugins\image-cropper\cropper.min.css" />
+    <Content Include="assets\plugins\image-cropper\cropper.min.js" />
+    <Content Include="assets\plugins\jquery-blockui\jquery.blockui.js" />
+    <Content Include="assets\plugins\jquery-idletimer\idle-timer.js" />
+    <Content Include="assets\plugins\jquery-idletimer\idle-timer.min.js" />
+    <Content Include="assets\plugins\jquery-inputmask\inputmask\inputmask.date.extensions.js" />
+    <Content Include="assets\plugins\jquery-inputmask\inputmask\inputmask.dependencyLib.jquery.js" />
+    <Content Include="assets\plugins\jquery-inputmask\inputmask\inputmask.extensions.js" />
+    <Content Include="assets\plugins\jquery-inputmask\inputmask\inputmask.js" />
+    <Content Include="assets\plugins\jquery-inputmask\inputmask\inputmask.numeric.extensions.js" />
+    <Content Include="assets\plugins\jquery-inputmask\inputmask\inputmask.phone.extensions.js" />
+    <Content Include="assets\plugins\jquery-inputmask\inputmask\inputmask.regex.extensions.js" />
+    <Content Include="assets\plugins\jquery-inputmask\inputmask\jquery.inputmask.js" />
+    <Content Include="assets\plugins\jquery-inputmask\jquery.inputmask.bundle.js" />
+    <Content Include="assets\plugins\jquery-inputmask\min\inputmask\inputmask.date.extensions.min.js" />
+    <Content Include="assets\plugins\jquery-inputmask\min\inputmask\inputmask.dependencyLib.jquery.min.js" />
+    <Content Include="assets\plugins\jquery-inputmask\min\inputmask\inputmask.extensions.min.js" />
+    <Content Include="assets\plugins\jquery-inputmask\min\inputmask\inputmask.min.js" />
+    <Content Include="assets\plugins\jquery-inputmask\min\inputmask\inputmask.numeric.extensions.min.js" />
+    <Content Include="assets\plugins\jquery-inputmask\min\inputmask\inputmask.phone.extensions.min.js" />
+    <Content Include="assets\plugins\jquery-inputmask\min\inputmask\inputmask.regex.extensions.min.js" />
+    <Content Include="assets\plugins\jquery-inputmask\min\inputmask\jquery.inputmask.min.js" />
+    <Content Include="assets\plugins\jquery-inputmask\min\jquery.inputmask.bundle.min.js" />
+    <Content Include="assets\plugins\jquery-jvectormap\gdp-data.js" />
+    <Content Include="assets\plugins\jquery-jvectormap\jquery-jvectormap-2.0.3.css" />
+    <Content Include="assets\plugins\jquery-jvectormap\jquery-jvectormap-2.0.3.min.js" />
+    <Content Include="assets\plugins\jquery-jvectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="assets\plugins\jquery-sparkline\jquery.sparkline.min.js" />
+    <Content Include="assets\plugins\jquery-steps\jquery.steps.css" />
+    <Content Include="assets\plugins\jquery-steps\jquery.steps.js" />
+    <Content Include="assets\plugins\jquery-steps\jquery.steps.min.js" />
+    <Content Include="assets\plugins\jquery-validation\additional-methods.js" />
+    <Content Include="assets\plugins\jquery-validation\additional-methods.min.js" />
+    <Content Include="assets\plugins\jquery-validation\jquery.validate.js" />
+    <Content Include="assets\plugins\jquery-validation\jquery.validate.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_ar.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_ar.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_bg.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_bg.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_bn_BD.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_bn_BD.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_ca.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_ca.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_cs.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_cs.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_da.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_da.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_de.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_de.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_el.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_el.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_es.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_es.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_es_AR.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_es_AR.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_es_PE.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_es_PE.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_et.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_et.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_eu.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_eu.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_fa.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_fa.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_fi.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_fi.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_fr.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_fr.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_ge.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_ge.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_gl.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_gl.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_he.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_he.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_hr.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_hr.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_hu.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_hu.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_hy_AM.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_hy_AM.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_id.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_id.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_is.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_is.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_it.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_it.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_ja.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_ja.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_ka.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_ka.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_kk.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_kk.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_ko.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_ko.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_lt.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_lt.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_lv.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_lv.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_my.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_my.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_nl.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_nl.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_no.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_no.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_pl.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_pl.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_pt_BR.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_pt_BR.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_pt_PT.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_pt_PT.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_ro.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_ro.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_ru.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_ru.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_si.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_si.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_sk.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_sk.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_sl.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_sl.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_sr.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_sr.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_sr_lat.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_sr_lat.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_sv.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_sv.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_th.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_th.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_tj.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_tj.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_tr.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_tr.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_uk.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_uk.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_vi.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_vi.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_zh.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_zh.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_zh_TW.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\messages_zh_TW.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\methods_de.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\methods_de.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\methods_es_CL.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\methods_es_CL.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\methods_fi.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\methods_fi.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\methods_nl.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\methods_nl.min.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\methods_pt.js" />
+    <Content Include="assets\plugins\jquery-validation\localization\methods_pt.min.js" />
+    <Content Include="assets\plugins\jquery.countdown\jquery.countdown.js" />
+    <Content Include="assets\plugins\jquery.countdown\jquery.countdown.min.js" />
+    <Content Include="assets\plugins\jquery\jquery-2.2.0.min.js" />
+    <Content Include="assets\plugins\masonry\masonry.pkgd.min.js" />
+    <Content Include="assets\plugins\material-preloader\css\materialPreloader.css" />
+    <Content Include="assets\plugins\material-preloader\css\materialPreloader.min.css" />
+    <Content Include="assets\plugins\material-preloader\css\style.css" />
+    <Content Include="assets\plugins\material-preloader\js\js.js" />
+    <Content Include="assets\plugins\material-preloader\js\materialPreloader-vanilla.js" />
+    <Content Include="assets\plugins\material-preloader\js\materialPreloader.js" />
+    <Content Include="assets\plugins\material-preloader\js\materialPreloader.min.js" />
+    <Content Include="assets\plugins\materialize\css\materialize.css" />
+    <Content Include="assets\plugins\materialize\css\materialize.min.css" />
+    <Content Include="assets\plugins\materialize\js\materialize.js" />
+    <Content Include="assets\plugins\materialize\js\materialize.min.js" />
+    <Content Include="assets\plugins\metrojs\images\1pixel.gif" />
+    <Content Include="assets\plugins\metrojs\images\metroIcons.jpg" />
+    <Content Include="assets\plugins\metrojs\images\metroIcons_light.jpg" />
+    <Content Include="assets\plugins\metrojs\MetroJs.css" />
+    <Content Include="assets\plugins\metrojs\MetroJs.js" />
+    <Content Include="assets\plugins\metrojs\MetroJs.min.css" />
+    <Content Include="assets\plugins\metrojs\MetroJs.min.js" />
+    <Content Include="assets\plugins\nestable\jquery.nestable.js" />
+    <Content Include="assets\plugins\nvd3\nv.d3.css" />
+    <Content Include="assets\plugins\nvd3\nv.d3.js" />
+    <Content Include="assets\plugins\nvd3\nv.d3.min.css" />
+    <Content Include="assets\plugins\nvd3\nv.d3.min.js" />
+    <Content Include="assets\plugins\patternlock-master\MIT-LICENSE.txt" />
+    <Content Include="assets\plugins\patternlock-master\patternLock.css" />
+    <Content Include="assets\plugins\patternlock-master\patternLock.js" />
+    <Content Include="assets\plugins\patternlock-master\patternLock.min.js" />
+    <Content Include="assets\plugins\peity\jquery.peity.min.js" />
+    <Content Include="assets\plugins\pricing-tables\css\reset.css" />
+    <Content Include="assets\plugins\pricing-tables\css\style.css" />
+    <Content Include="assets\plugins\pricing-tables\img\cd-icon-small-arrow.svg" />
+    <Content Include="assets\plugins\pricing-tables\js\jquery-2.1.1.js" />
+    <Content Include="assets\plugins\pricing-tables\js\main.js" />
+    <Content Include="assets\plugins\pricing-tables\js\modernizr.js" />
+    <Content Include="assets\plugins\products-comparison-table\css\reset.css" />
+    <Content Include="assets\plugins\products-comparison-table\css\style.css" />
+    <Content Include="assets\plugins\products-comparison-table\img\cd-arrow.svg" />
+    <Content Include="assets\plugins\products-comparison-table\img\cd-check.svg" />
+    <Content Include="assets\plugins\products-comparison-table\img\cd-star.svg" />
+    <Content Include="assets\plugins\products-comparison-table\img\product.png" />
+    <Content Include="assets\plugins\products-comparison-table\index.html" />
+    <Content Include="assets\plugins\products-comparison-table\js\jquery-2.1.4.js" />
+    <Content Include="assets\plugins\products-comparison-table\js\main.js" />
+    <Content Include="assets\plugins\products-comparison-table\js\modernizr.js" />
+    <Content Include="assets\plugins\select2\css\select2.css" />
+    <Content Include="assets\plugins\select2\css\select2.min.css" />
+    <Content Include="assets\plugins\select2\js\i18n\az.js" />
+    <Content Include="assets\plugins\select2\js\i18n\bg.js" />
+    <Content Include="assets\plugins\select2\js\i18n\ca.js" />
+    <Content Include="assets\plugins\select2\js\i18n\cs.js" />
+    <Content Include="assets\plugins\select2\js\i18n\da.js" />
+    <Content Include="assets\plugins\select2\js\i18n\de.js" />
+    <Content Include="assets\plugins\select2\js\i18n\en.js" />
+    <Content Include="assets\plugins\select2\js\i18n\es.js" />
+    <Content Include="assets\plugins\select2\js\i18n\et.js" />
+    <Content Include="assets\plugins\select2\js\i18n\eu.js" />
+    <Content Include="assets\plugins\select2\js\i18n\fa.js" />
+    <Content Include="assets\plugins\select2\js\i18n\fi.js" />
+    <Content Include="assets\plugins\select2\js\i18n\fr.js" />
+    <Content Include="assets\plugins\select2\js\i18n\gl.js" />
+    <Content Include="assets\plugins\select2\js\i18n\he.js" />
+    <Content Include="assets\plugins\select2\js\i18n\hi.js" />
+    <Content Include="assets\plugins\select2\js\i18n\hr.js" />
+    <Content Include="assets\plugins\select2\js\i18n\hu.js" />
+    <Content Include="assets\plugins\select2\js\i18n\id.js" />
+    <Content Include="assets\plugins\select2\js\i18n\is.js" />
+    <Content Include="assets\plugins\select2\js\i18n\it.js" />
+    <Content Include="assets\plugins\select2\js\i18n\ja.js" />
+    <Content Include="assets\plugins\select2\js\i18n\ko.js" />
+    <Content Include="assets\plugins\select2\js\i18n\lt.js" />
+    <Content Include="assets\plugins\select2\js\i18n\lv.js" />
+    <Content Include="assets\plugins\select2\js\i18n\mk.js" />
+    <Content Include="assets\plugins\select2\js\i18n\ms.js" />
+    <Content Include="assets\plugins\select2\js\i18n\nb.js" />
+    <Content Include="assets\plugins\select2\js\i18n\nl.js" />
+    <Content Include="assets\plugins\select2\js\i18n\pl.js" />
+    <Content Include="assets\plugins\select2\js\i18n\pt-BR.js" />
+    <Content Include="assets\plugins\select2\js\i18n\pt.js" />
+    <Content Include="assets\plugins\select2\js\i18n\ro.js" />
+    <Content Include="assets\plugins\select2\js\i18n\ru.js" />
+    <Content Include="assets\plugins\select2\js\i18n\sk.js" />
+    <Content Include="assets\plugins\select2\js\i18n\sr.js" />
+    <Content Include="assets\plugins\select2\js\i18n\sv.js" />
+    <Content Include="assets\plugins\select2\js\i18n\th.js" />
+    <Content Include="assets\plugins\select2\js\i18n\tr.js" />
+    <Content Include="assets\plugins\select2\js\i18n\uk.js" />
+    <Content Include="assets\plugins\select2\js\i18n\vi.js" />
+    <Content Include="assets\plugins\select2\js\i18n\zh-CN.js" />
+    <Content Include="assets\plugins\select2\js\i18n\zh-TW.js" />
+    <Content Include="assets\plugins\select2\js\select2.full.js" />
+    <Content Include="assets\plugins\select2\js\select2.full.min.js" />
+    <Content Include="assets\plugins\select2\js\select2.js" />
+    <Content Include="assets\plugins\select2\js\select2.min.js" />
+    <Content Include="assets\plugins\simditor\images\image.png" />
+    <Content Include="assets\plugins\simditor\scripts\hotkeys.js" />
+    <Content Include="assets\plugins\simditor\scripts\hotkeys.min.js" />
+    <Content Include="assets\plugins\simditor\scripts\jquery.min.js" />
+    <Content Include="assets\plugins\simditor\scripts\module.js" />
+    <Content Include="assets\plugins\simditor\scripts\module.min.js" />
+    <Content Include="assets\plugins\simditor\scripts\simditor.js" />
+    <Content Include="assets\plugins\simditor\scripts\simditor.min.js" />
+    <Content Include="assets\plugins\simditor\scripts\uploader.js" />
+    <Content Include="assets\plugins\simditor\scripts\uploader.min.js" />
+    <Content Include="assets\plugins\simditor\styles\simditor.css" />
+    <Content Include="assets\plugins\sweetalert\sweetalert-dev.js" />
+    <Content Include="assets\plugins\sweetalert\sweetalert.css" />
+    <Content Include="assets\plugins\sweetalert\sweetalert.min.js" />
+    <Content Include="assets\plugins\vertical-timeline\css\reset.css" />
+    <Content Include="assets\plugins\vertical-timeline\css\style.css" />
+    <Content Include="assets\plugins\vertical-timeline\img\cd-icon-location.svg" />
+    <Content Include="assets\plugins\vertical-timeline\img\cd-icon-movie.svg" />
+    <Content Include="assets\plugins\vertical-timeline\img\cd-icon-picture.svg" />
+    <Content Include="assets\plugins\vertical-timeline\js\main.js" />
+    <Content Include="assets\plugins\vertical-timeline\js\modernizr.js" />
+    <Content Include="assets\plugins\waypoints\jquery.waypoints.js" />
+    <Content Include="assets\plugins\waypoints\jquery.waypoints.min.js" />
+    <Content Include="assets\plugins\waypoints\noframework.waypoints.js" />
+    <Content Include="assets\plugins\waypoints\noframework.waypoints.min.js" />
+    <Content Include="assets\plugins\waypoints\shortcuts\infinite.js" />
+    <Content Include="assets\plugins\waypoints\shortcuts\infinite.min.js" />
+    <Content Include="assets\plugins\waypoints\shortcuts\inview.js" />
+    <Content Include="assets\plugins\waypoints\shortcuts\inview.min.js" />
+    <Content Include="assets\plugins\waypoints\shortcuts\sticky.js" />
+    <Content Include="assets\plugins\waypoints\shortcuts\sticky.min.js" />
+    <Content Include="assets\plugins\waypoints\waypoints.debug.js" />
+    <Content Include="assets\plugins\waypoints\zepto.waypoints.js" />
+    <Content Include="assets\plugins\waypoints\zepto.waypoints.min.js" />
+    <Content Include="assets\plugins\weather-icons-master\.gitignore" />
+    <Content Include="assets\plugins\weather-icons-master\css\weather-icons-wind.css" />
+    <Content Include="assets\plugins\weather-icons-master\css\weather-icons-wind.min.css" />
+    <Content Include="assets\plugins\weather-icons-master\css\weather-icons.css" />
+    <Content Include="assets\plugins\weather-icons-master\css\weather-icons.min.css" />
+    <Content Include="assets\plugins\weather-icons-master\font\weathericons-regular-webfont.svg" />
+    <Content Include="assets\plugins\weather-icons-master\values\weathericons.xml" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\api-list.html" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\browserconfig.xml" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\css\img\sky.jpg" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\css\styles.css" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\css\weather-icons-wind.css" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\css\weather-icons-wind.min.css" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\css\weather-icons.css" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\css\weather-icons.min.css" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\favicons\apple-touch-icon-57x57.png" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\favicons\apple-touch-icon-60x60.png" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\favicons\apple-touch-icon-precomposed.png" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\favicons\apple-touch-icon.png" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\favicons\favicon-16x16.png" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\favicons\favicon-32x32.png" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\favicons\favicon.ico" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\favicons\mstile-150x150.png" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\favicons\mstile-310x150.png" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\favicons\mstile-70x70.png" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\font\weathericons-regular-webfont.svg" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\index.html" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="assets\plugins\counter-up-master\counterup.jquery.json" />
+    <Content Include="assets\plugins\counter-up-master\LICENSE" />
+    <Content Include="assets\plugins\counter-up-master\README.md" />
+    <Content Include="assets\plugins\datatables\images\Sorting icons.psd" />
+    <Content Include="assets\plugins\google-grid-gallery\css\.DS_Store" />
+    <Content Include="assets\plugins\google-grid-gallery\fonts\.DS_Store" />
+    <Content Include="assets\plugins\google-grid-gallery\fonts\bpicons\bpicons.eot" />
+    <Content Include="assets\plugins\google-grid-gallery\fonts\bpicons\bpicons.ttf" />
+    <Content Include="assets\plugins\google-grid-gallery\fonts\bpicons\bpicons.woff" />
+    <Content Include="assets\plugins\google-grid-gallery\fonts\fontawesome\.DS_Store" />
+    <Content Include="assets\plugins\google-grid-gallery\fonts\fontawesome\fontawesome.eot" />
+    <Content Include="assets\plugins\google-grid-gallery\fonts\fontawesome\fontawesome.ttf" />
+    <Content Include="assets\plugins\google-grid-gallery\fonts\fontawesome\fontawesome.woff" />
+    <Content Include="assets\plugins\google-grid-gallery\img\.DS_Store" />
+    <Content Include="assets\plugins\google-grid-gallery\img\large\.DS_Store" />
+    <Content Include="assets\plugins\google-grid-gallery\img\thumb\.DS_Store" />
+    <Content Include="assets\plugins\google-grid-gallery\js\.DS_Store" />
+    <Content Include="assets\plugins\jquery-blockui\blockUI.jquery.json" />
+    <Content Include="assets\plugins\jquery-blockui\bower.json" />
+    <Content Include="assets\plugins\jquery-blockui\composer.json" />
+    <Content Include="assets\plugins\jquery-blockui\README.md" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Bold.eot" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Bold.ttf" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Bold.woff" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Bold.woff2" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Light.eot" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Light.ttf" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Light.woff" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Light.woff2" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Medium.eot" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Medium.ttf" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Medium.woff" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Medium.woff2" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Regular.eot" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Regular.ttf" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Regular.woff" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Regular.woff2" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Thin.eot" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Thin.ttf" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Thin.woff" />
+    <Content Include="assets\plugins\materialize\fonts\roboto\Roboto-Thin.woff2" />
+    <Content Include="assets\plugins\materialize\LICENSE" />
+    <Content Include="assets\plugins\nvd3\nv.d3.min.css.map" />
+    <Content Include="assets\plugins\nvd3\nv.d3.min.js.map" />
+    <Content Include="assets\plugins\patternlock-master\bower.json" />
+    <Content Include="assets\plugins\patternlock-master\patternLock.jquery.json" />
+    <Content Include="assets\plugins\patternlock-master\README.md" />
+    <Content Include="assets\plugins\pricing-tables\js\.DS_Store" />
+    <Content Include="assets\plugins\pricing-tables\partials\_layout.scss" />
+    <Content Include="assets\plugins\pricing-tables\partials\_mixins.scss" />
+    <Content Include="assets\plugins\pricing-tables\partials\_variables.scss" />
+    <Content Include="assets\plugins\pricing-tables\scss\style.scss" />
+    <Content Include="assets\plugins\products-comparison-table\.DS_Store" />
+    <Content Include="assets\plugins\products-comparison-table\img\.DS_Store" />
+    <Content Include="assets\plugins\products-comparison-table\js\.DS_Store" />
+    <Content Include="assets\plugins\products-comparison-table\partials\_layout.scss" />
+    <Content Include="assets\plugins\products-comparison-table\partials\_mixins.scss" />
+    <Content Include="assets\plugins\products-comparison-table\partials\_variables.scss" />
+    <Content Include="assets\plugins\products-comparison-table\README.md" />
+    <Content Include="assets\plugins\products-comparison-table\scss\style.scss" />
+    <Content Include="assets\plugins\simditor\styles\editor.scss" />
+    <Content Include="assets\plugins\simditor\styles\fonticon.scss" />
+    <Content Include="assets\plugins\simditor\styles\simditor.scss" />
+    <Content Include="assets\plugins\vertical-timeline\img\.DS_Store" />
+    <Content Include="assets\plugins\vertical-timeline\js\.DS_Store" />
+    <Content Include="assets\plugins\vertical-timeline\partials\_layout.scss" />
+    <Content Include="assets\plugins\vertical-timeline\partials\_mixins.scss" />
+    <Content Include="assets\plugins\vertical-timeline\partials\_variables.scss" />
+    <Content Include="assets\plugins\vertical-timeline\scss\style.scss" />
+    <Content Include="assets\plugins\weather-icons-master\.npmignore" />
+    <Content Include="assets\plugins\weather-icons-master\bower.json" />
+    <Content Include="assets\plugins\weather-icons-master\font\weathericons-regular-webfont.eot" />
+    <Content Include="assets\plugins\weather-icons-master\font\weathericons-regular-webfont.ttf" />
+    <Content Include="assets\plugins\weather-icons-master\font\weathericons-regular-webfont.woff" />
+    <Content Include="assets\plugins\weather-icons-master\font\weathericons-regular-webfont.woff2" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-classes\classes-beaufort.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-classes\classes-day.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-classes\classes-direction.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-classes\classes-misc.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-classes\classes-moon-aliases.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-classes\classes-moon.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-classes\classes-neutral.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-classes\classes-night.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-classes\classes-time.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-classes\classes-wind-aliases.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-classes\classes-wind-degrees.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-classes\classes-wind.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-variables\variables-beaufort.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-variables\variables-day.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-variables\variables-direction.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-variables\variables-misc.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-variables\variables-moon.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-variables\variables-neutral.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-variables\variables-night.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-variables\variables-time.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\icon-variables\variables-wind-names.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\mappings\wi-forecast-io.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\mappings\wi-owm.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\mappings\wi-wmo4680.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\mappings\wi-wunderground.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\mappings\wi-yahoo.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\weather-icons-classes.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\weather-icons-core.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\weather-icons-variables.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\weather-icons-wind.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\weather-icons-wind.min.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\weather-icons.less" />
+    <Content Include="assets\plugins\weather-icons-master\less\weather-icons.min.less" />
+    <Content Include="assets\plugins\weather-icons-master\package.json" />
+    <Content Include="assets\plugins\weather-icons-master\README.md" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-classes\classes-beaufort.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-classes\classes-day.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-classes\classes-direction.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-classes\classes-misc.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-classes\classes-moon-aliases.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-classes\classes-moon.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-classes\classes-neutral.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-classes\classes-night.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-classes\classes-time.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-classes\classes-wind-aliases.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-classes\classes-wind-degrees.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-classes\classes-wind.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-variables\variables-beaufort.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-variables\variables-day.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-variables\variables-direction.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-variables\variables-misc.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-variables\variables-moon.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-variables\variables-neutral.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-variables\variables-night.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-variables\variables-time.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\icon-variables\variables-wind-names.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\mappings\wi-forecast-io.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\mappings\wi-owm.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\mappings\wi-wmo4680.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\mappings\wi-wunderground.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\mappings\wi-yahoo.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\weather-icons-classes.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\weather-icons-core.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\weather-icons-variables.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\weather-icons-wind.min.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\weather-icons-wind.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\weather-icons.min.scss" />
+    <Content Include="assets\plugins\weather-icons-master\sass\weather-icons.scss" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\beaufort.edn" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\csv\bak.csv" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\csv\beaufort.csv" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\csv\day.csv" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\csv\direction.csv" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\csv\misc.csv" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\csv\moon.csv" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\csv\neutral.csv" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\csv\night.csv" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\csv\temp.csv" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\csv\time.csv" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\csv\wind-degrees.csv" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\csv\wind.csv" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\day.edn" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\direction.edn" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\misc.edn" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\moon.edn" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\neutral.edn" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\night.edn" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\templates.edn" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\time.edn" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\wbuilder" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\wind-degrees.edn" />
+    <Content Include="assets\plugins\weather-icons-master\_builder\wind.edn" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\font-source\artwork\cloud pieces.ai" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\font-source\artwork\icon template.ai" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\font-source\artwork\tsunami.ai" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\font-source\weathericons-regular.glyphs" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\font-source\weathericons-regular.otf" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\CNAME" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\fonts\FontAwesome.otf" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\font\weathericons-regular-webfont.eot" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\font\weathericons-regular-webfont.ttf" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\font\weathericons-regular-webfont.woff" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\gh-pages\font\weathericons-regular-webfont.woff2" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\jade\api-list.jade" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\jade\icon-list-beaufort.jade" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\jade\icon-list-day.jade" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\jade\icon-list-direction.jade" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\jade\icon-list-misc.jade" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\jade\icon-list-moon.jade" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\jade\icon-list-neutral.jade" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\jade\icon-list-night.jade" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\jade\icon-list-time.jade" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\jade\icon-list-wind-cardinal.jade" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\jade\icon-list-wind.jade" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\jade\icon-list.jade" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\jade\index.jade" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\jade\new-icons.jade" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap-includes.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\alerts.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\badges.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\bootstrap.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\breadcrumbs.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\button-groups.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\buttons.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\carousel.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\close.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\code.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\component-animations.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\dropdowns.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\forms.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\glyphicons.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\grid.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\input-groups.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\jumbotron.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\labels.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\list-group.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\media.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\alerts.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\background-variant.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\border-radius.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\buttons.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\center-block.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\clearfix.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\forms.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\gradients.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\grid-framework.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\grid.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\hide-text.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\image.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\labels.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\list-group.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\nav-divider.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\opacity.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\pagination.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\panels.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\progress-bar.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\reset-filter.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\reset-text.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\resize.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\size.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\tab-focus.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\table-row.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\text-emphasis.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\text-overflow.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\modals.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\navbar.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\navs.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\normalize.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\pager.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\pagination.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\panels.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\popovers.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\print.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\progress-bars.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\responsive-embed.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\responsive-utilities.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\scaffolding.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\tables.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\theme.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\thumbnails.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\tooltip.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\type.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\utilities.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\variables.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\bootstrap\wells.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\cheatsheet.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\font-awesome\animated.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\font-awesome\bordered-pulled.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\font-awesome\core.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\font-awesome\fixed-width.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\font-awesome\font-awesome.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\font-awesome\icons.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\font-awesome\larger.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\font-awesome\list.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\font-awesome\mixins.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\font-awesome\path.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\font-awesome\rotated-flipped.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\font-awesome\stacked.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\font-awesome\variables.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\main.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\mixins.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\styles.less" />
+    <Content Include="assets\plugins\weather-icons-master\_docs\less\variables.less" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\SignIn.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1961</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1961/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
