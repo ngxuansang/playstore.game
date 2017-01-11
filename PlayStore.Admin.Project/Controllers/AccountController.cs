@@ -78,7 +78,13 @@ namespace PlayStore.Admin.Project.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    var user = UserManager.FindByName(model.Email);
+                    if (UserManager.IsInRole(user.Id, "root"))
+                    {
+                        return RedirectToLocal(returnUrl);
+                    }
+                    ModelState.AddModelError("", "Access denied");
+                    return View(model);
 
                 case SignInStatus.LockedOut:
                     return View("Lockout");

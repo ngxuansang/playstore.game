@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PlayStore.Admin.Project.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace PlayStore.Admin.Project.Controllers
 {
@@ -320,6 +321,35 @@ namespace PlayStore.Admin.Project.Controllers
             }
             var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
             return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
+        }
+
+        public ActionResult UserRole()
+        {
+            //ApplicationDbContext context = new ApplicationDbContext();
+            //var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+
+            //if(!roleManager.RoleExists("root"))
+            //{
+            //    IdentityRole role = new IdentityRole();
+            //    role.Name = "root";
+            //    roleManager.Create(role);
+
+            //    var user = new ApplicationUser();
+            //    user.UserName = "playstore.lanina@gmail.com";
+            //    user.Email = "playstore.lanina@gmail.com";
+
+            //    string userPWD = "Sang678!@#$";
+
+            //    var chkUser = UserManager.Create(user, userPWD);
+
+            //    //Add default User to Role Admin   
+            //    if (chkUser.Succeeded)
+            //    {
+            //        var result1 = UserManager.AddToRole(user.Id, "root");
+
+            //    }
+            //}
+            return View();
         }
 
         protected override void Dispose(bool disposing)

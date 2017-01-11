@@ -41,14 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PlayStore.Project.ViewModel.AdminPage\PageSetting\CarouselSettingViewModel.cs" />
     <Compile Include="PlayStore.Project.ViewModel.UserPage\HomeControllerModel.cs" />
     <Compile Include="PlayStore.Project.ViewModel.UserPage\ManageViewModel.cs" />
     <Compile Include="PlayStore.Project.ViewModel.UserPage\PersonalInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PlayStore.Project.ViewModel.AdminPage\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\PlayStore.Project.DataAccess\PlayStore.Project.DataAccess.csproj">
       <Project>{f27d5e36-03fc-44ad-9d52-13140362a816}</Project>

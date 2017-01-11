@@ -213,21 +213,6 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\PlayStoreModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PlayStoreModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PlayStoreModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PlayStoreModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PlayStoreModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PlayStoreModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -564,16 +549,6 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Assets\JsController\NavbarJS.js" />
-    <Content Include="Models\PlayStoreModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PlayStoreModel.edmx</DependentUpon>
-      <LastGenOutput>PlayStoreModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\PlayStoreModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PlayStoreModel.edmx</DependentUpon>
-      <LastGenOutput>PlayStoreModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -616,13 +591,6 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
-    <EntityDeploy Include="Models\PlayStoreModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PlayStoreModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\PlayStoreModel.edmx.diagram">
-      <DependentUpon>PlayStoreModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Assets\fonts\icomoon-reg\fonts\icomoon-regdef5.eot" />
     <Content Include="Assets\fonts\icomoon-reg\fonts\icomoon-regdef5.ttf" />
     <Content Include="Assets\fonts\icomoon-reg\fonts\icomoon-regdef5.woff" />

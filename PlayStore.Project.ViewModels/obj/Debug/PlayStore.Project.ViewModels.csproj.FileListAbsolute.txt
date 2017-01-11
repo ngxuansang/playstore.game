@@ -12,3 +12,5 @@ D:\Projects\playstore.game\PlayStore.Project.ViewModels\bin\Debug\PlayStore.Proj
 D:\Projects\playstore.game\PlayStore.Project.ViewModels\obj\Debug\PlayStore.Project.ViewModels.csprojResolveAssemblyReference.cache
 D:\Projects\playstore.game\PlayStore.Project.ViewModels\obj\Debug\PlayStore.Project.ViewModels.dll
 D:\Projects\playstore.game\PlayStore.Project.ViewModels\obj\Debug\PlayStore.Project.ViewModels.pdb
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\bin\Debug\EntityFramework.dll
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\bin\Debug\EntityFramework.xml

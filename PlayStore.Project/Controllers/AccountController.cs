@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
 using PlayStore.Project.ViewModels.PlayStore.Project.ViewModel.UserPage;
+using PlayStore.Project.DataAccess.DatabaseAccess;
 
 namespace PlayStore.Project.Controllers
 {

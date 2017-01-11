@@ -10,7 +10,7 @@
     <meta name="description" content="Responsive Admin Dashboard Template" />
     <meta name="keywords" content="admin,dashboard" />
     <meta name="author" content="Steelcoders" />
-
+    <link rel="icon" href="~/favicon.ico" />
     @RenderSection("css", false)
 </head>
 <body>
@@ -65,9 +65,7 @@
                             <span class="material-design-hamburger__layer"></span>
                         </a>
                     </section>
-                    <div class="header-title col s3 m3">
-                        <span class="chapter-title">PlayStore Admin</span>
-                    </div>
+                    <div class="header-title col s3 m3"><h4>Seikō</h4> </div>
                     <form class="left search col s6 hide-on-small-and-down">
                         <div class="input-field">
                             <input id="search" type="search" placeholder="Search" autocomplete="off">
@@ -494,10 +492,18 @@
                         <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">settings</i>Page Setting<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="#">Carousel</a></li>
+                                <li><a href="@Url.Action("Index", "PageSetting")">Carousel</a></li>
                                 <li><a href="#">Layout</a></li>
                                 <li><a href="#">SEO keywords</a></li>
                                 <li><a href="#">About</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="no-padding">
+                        <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">account_box</i>Account manager<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="@Url.Action("UserRole", "Manage")">User roles</a></li>
                             </ul>
                         </div>
                     </li>
@@ -506,24 +512,24 @@
         </aside>
 
         @RenderBody()
-        
-        <div class="page-footer">
-            <div class="footer-grid container">
-                <div class="footer-l white">&nbsp;</div>
-                <div class="footer-grid-l white">
+
+        @*<div class="page-footer">
+                <div class="footer-grid container">
+                    <div class="footer-l white">&nbsp;</div>
+                    <div class="footer-grid-l white">
+                    </div>
+                    <div class="footer-r white">&nbsp;</div>
+                    <div class="footer-grid-r white">
+                        <a class="footer-text" href="mailbox.html">
+                            <i class="material-icons arrow-r">arrow_forward</i>
+                            <span class="direction">Next</span>
+                            <div>
+                                Mailbox app
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="footer-r white">&nbsp;</div>
-                <div class="footer-grid-r white">
-                    <a class="footer-text" href="mailbox.html">
-                        <i class="material-icons arrow-r">arrow_forward</i>
-                        <span class="direction">Next</span>
-                        <div>
-                            Mailbox app
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
+            </div>*@
     </div>
 
     <div class="left-sidebar-hover"></div>

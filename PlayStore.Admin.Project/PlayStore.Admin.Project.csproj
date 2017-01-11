@@ -199,6 +199,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PageSettingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -263,6 +264,7 @@
     <Content Include="assets\js\alpha.js" />
     <Content Include="assets\js\alpha.min.js" />
     <Content Include="assets\js\custom.js" />
+    <Content Include="assets\js\JsController\CarouselSettingController.js" />
     <Content Include="assets\js\pages\calendar.js" />
     <Content Include="assets\js\pages\charts.js" />
     <Content Include="assets\js\pages\coming-soon.js" />
@@ -1418,6 +1420,8 @@
     <Content Include="Views\Shared\_LayoutUserIdentity.cshtml" />
     <Content Include="Views\Home\Error404.cshtml" />
     <Content Include="Views\Home\Error500.cshtml" />
+    <Content Include="Views\Manage\UserRole.cshtml" />
+    <Content Include="Views\PageSetting\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

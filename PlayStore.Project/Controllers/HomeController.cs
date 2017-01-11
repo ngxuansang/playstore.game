@@ -1,4 +1,5 @@
 ﻿using PlayStore.Project.DataAccess;
+using PlayStore.Project.DataAccess.DatabaseAccess;
 using PlayStore.Project.DataAccess.DataModel;
 using PlayStore.Project.DataAccess.DataModel.Carousel_Models;
 using PlayStore.Project.Models;
@@ -20,13 +21,7 @@ namespace PlayStore.Project.Controllers
         public ActionResult Index()
         {
             HomeViewModel model = new HomeViewModel();
-            //model.Categories = Db.Database.SqlQuery<Category>("dbo.get_categories_child @parentID = 0").ToList();
-            var carouselContent = Db.Database.SqlQuery<CarouselContent>($"dbo.get_carousel_content");
-            model.Carousels =  Db.Database.SqlQuery<Carousel>("get_carousel").ToList();
-            foreach (var item in model.Carousels)
-            {
-                item.Contents = carouselContent.Where(x => x.CarouselID == item.ID).ToList();
-            }
+            
             return View(model);
         }
 
