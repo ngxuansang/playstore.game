@@ -1,0 +1,112 @@
+﻿@using PlayStore.Project.DataAccess.DataModel.Carousel_Models;
+@model CarouselType
+
+<div class="row">
+    @if (Model.HasButton)
+    {
+        for (int i = 1; i <= Model.Range - 1; i++)
+        {
+            string data_class = $"{Model.ClassName}-{i}";
+            string title_id = $"title{i}";
+            string animate_id = $"title{i}_animate";
+            string delay_id = $"delay_title{i}";
+            <div class="col s12">
+                <div class="row">
+                    <div class="col s3 input-field">
+                        <input type="text" data-class="@data_class" class="validate" id="@title_id" value="" />
+                        <label for="@title_id">Title @i</label>
+                    </div>
+                    <div class="col s3">
+                        <label for="@animate_id">Animated title @i</label>
+                        <select class="browser-default combobox_animate" id="@animate_id">
+                            <option value="disabled" disabled="" selected>Choose your animate title @i</option>
+                        </select>
+                    </div>
+                    <div class="col s3 input-field">
+                        <input type="text" class="validate" id="@delay_id" value="" />
+                        <label for="@delay_id">Delay time title @i</label>
+                    </div>
+                    <div class="col s3 input-field">
+                        <div class="row">
+                            <div class="col s6">
+                                <p class="p-v-xs">
+                                    <input type="checkbox" id="IsBold_@title_id">
+                                    <label for="IsBold_@title_id">Bold</label>
+                                </p>
+                            </div>
+                            <div class="col s6">
+                                <p class="p-v-xs">
+                                    <input type="checkbox" id="IsItalic_@title_id">
+                                    <label for="IsItalic_@title_id">Italic</label>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="col s12">
+            <div class="row">
+                <div class="col s4 input-field">
+                    <input type="text" data-class-button="@Model.ClassName-@(Model.Range-1)" class="validate" id="button_title" value="" />
+                    <label for="button_title">Button title</label>
+                </div>
+                <div class="col s4">
+                    <label for="combobox_animate_title_1">Animated button</label>
+                    <select class="browser-default combobox_animate" data-for="button_title">
+                        <option value="disabled" disabled="" selected>Choose your animate button</option>
+                    </select>
+                </div>
+                <div class="col s4 input-field">
+                    <input type="text" class="validate" id="delay_time_button" value="" />
+                    <label for="delay_time_button">Delay time button</label>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        for (int i = 1; i <= Model.Range; i++)
+        {
+            string data_class = $"{Model.ClassName}-{i}";
+            string title_id = $"title{i}";
+            string animate_id = $"title{i}_animate";
+            string delay_id = $"delay_title{i}";
+            <div class="col s12">
+                <div class="row">
+                    <div class="col s3 input-field">
+                        <input type="text" data-class="@data_class" class="validate" id="@title_id" value="" />
+                        <label for="@title_id">Title @i</label>
+                    </div>
+                    <div class="col s3">
+                        <label for="@animate_id">Animated title @i</label>
+                        <select class="browser-default combobox_animate" id="@animate_id">
+                            <option value="disabled" disabled="" selected>Choose your animate title @i</option>
+                        </select>
+                    </div>
+                    <div class="col s3 input-field">
+                        <input type="text" class="validate" id="@delay_id" value="" />
+                        <label for="@delay_id">Delay time title @i</label>
+                    </div>
+                    <div class="col s3 input-field">
+                        <div class="row">
+                            <div class="col s6">
+                                <p class="p-v-xs">
+                                    <input type="checkbox" id="IsBold_@title_id">
+                                    <label for="IsBold_@title_id">Bold</label>
+                                </p>
+                            </div>
+                            <div class="col s6">
+                                <p class="p-v-xs">
+                                    <input type="checkbox" id="IsItalic_@title_id">
+                                    <label for="IsItalic_@title_id">Italic</label>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+</div>

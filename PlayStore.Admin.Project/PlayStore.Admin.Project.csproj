@@ -200,6 +200,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PageSettingController.cs" />
+    <Compile Include="Controllers\RenderPartialToStringExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -212,6 +213,7 @@
   <ItemGroup>
     <Content Include="assets\css\alpha.css" />
     <Content Include="assets\css\alpha.min.css" />
+    <Content Include="assets\css\animate.css" />
     <Content Include="assets\css\custom.css" />
     <Content Include="assets\images\card-image.jpg" />
     <Content Include="assets\images\card-image2.jpg" />
@@ -1422,9 +1424,15 @@
     <Content Include="Views\Home\Error500.cshtml" />
     <Content Include="Views\Manage\UserRole.cshtml" />
     <Content Include="Views\PageSetting\Index.cshtml" />
+    <Content Include="Views\PageSetting\Create.cshtml" />
+    <Content Include="Views\PageSetting\InnerCaptionControl.cshtml" />
+    <Content Include="Views\PageSetting\NormalControl.cshtml" />
+    <Content Include="Views\PageSetting\RenderControl.cshtml" />
+    <Content Include="Views\PageSetting\ListAnimte.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Share\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -32,6 +32,8 @@
     <!-- Icon Font -->
     <link href="~/Assets/fonts/icomoon-reg/style.css" rel="stylesheet">
 
+    <!--Datetime picker-->
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
 }
 
 @section js{
@@ -55,13 +57,30 @@
     <script src="~/Assets/js/megamenu.min.js"></script>
     <script src="~/Assets/js/tools.min.js"></script>
     <script src="~/Assets/js/app.js"></script>
+
+    <!--Datetime picker-->
+    <script type="text/javascript" src="~/Scripts/moment.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+
+    <!--Controller-->
     <script src="~/Assets/JsController/RegisterJS.js"></script>
     <script>
         $(document).ready(function () {
+            $('#BirthDate').datetimepicker({
+                format: 'MM/DD/YYYY',
+            });
             $('header').attr('class', 'page-header variant-2 fullboxed sticky smart');
         });
         $('label').append(' <span class="required">*</span>');
     </script>
+}
+
+@using PlayStore.Project.Models;
+@using PlayStore.Project.DataAccess.DataModel;
+@{
+    DiaGameEntities db = new DiaGameEntities();
+    var Cities = db.Database.SqlQuery<Location>("get_city").Select(x => new SelectListItem() { Text = x.LocationName, Value = x.ID.ToString() });
+    IEnumerable<SelectListItem> States = new[] { new SelectListItem { Text = "Select state", Value = "0" } };
 }
 
 <main class="page-main">
@@ -83,7 +102,6 @@
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary("", new { @class = "text-danger" })
                     </div>
-                    
 
                     <div class="form-group">
                         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
@@ -120,54 +138,52 @@
                     <div class="form-group">
                         @Html.LabelFor(m => m.LocationParentID, new { @class = "col-md-2 control-label" })
                         <div class="col-md-10">
-                            @Html.DropDownListFor(m => m.LocationParentID, (ViewData["Cities"] as IEnumerable<SelectListItem>), new { @class = "form-control" })
+                            @Html.DropDownListFor(m => m.LocationParentID, Cities, new { @class = "form-control" })
                             @Html.ValidationMessageFor(m => m.LocationParentID, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.LocationID, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                           @Html.DropDownListFor(m => m.LocationID, new List<SelectListItem>(), new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.LocationID, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <div>
-                                <button type="submit" class="btn btn-lg">Create</button><span class="required-text">* Required Fields</span>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.LocationID, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(m => m.LocationID, States, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.LocationID, "", new { @class = "text-danger" })
                             </div>
-                            <div class="back">or <a href="@Url.Action("Index", "Home")">Return to Store <i class="icon icon-undo"></i></a></div>
                         </div>
-                    </div>
-                   
-                   
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div>
+                                    <button type="submit" class="btn btn-lg">Create</button><span class="required-text">* Required Fields</span>
+                                </div>
+                                <div class="back">or <a href="@Url.Action("Index", "Home")">Return to Store <i class="icon icon-undo"></i></a></div>
+                            </div>
+                        </div>
+
                 }
 
                 @*<form class="account-create" action="#">

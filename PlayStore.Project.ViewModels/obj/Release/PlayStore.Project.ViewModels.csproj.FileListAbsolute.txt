@@ -5,3 +5,12 @@ C:\Users\WINDOWS\documents\visual studio 2015\Projects\PlayStore.Project\PlaySto
 C:\Users\WINDOWS\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.ViewModels\obj\Release\PlayStore.Project.ViewModels.csprojResolveAssemblyReference.cache
 C:\Users\WINDOWS\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.ViewModels\obj\Release\PlayStore.Project.ViewModels.dll
 C:\Users\WINDOWS\documents\visual studio 2015\Projects\PlayStore.Project\PlayStore.Project.ViewModels\obj\Release\PlayStore.Project.ViewModels.pdb
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\bin\Release\PlayStore.Project.ViewModels.dll
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\bin\Release\PlayStore.Project.ViewModels.pdb
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\bin\Release\PlayStore.Project.DataAccess.dll
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\bin\Release\EntityFramework.dll
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\bin\Release\PlayStore.Project.DataAccess.pdb
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\bin\Release\EntityFramework.xml
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\obj\Release\PlayStore.Project.ViewModels.csprojResolveAssemblyReference.cache
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\obj\Release\PlayStore.Project.ViewModels.dll
+D:\Projects\playstore.game\PlayStore.Project.ViewModels\obj\Release\PlayStore.Project.ViewModels.pdb

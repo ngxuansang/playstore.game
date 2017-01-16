@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Seikō HTML 5 eCommerce Responsive Theme</title>
+    <title>PlayStore Gaming Ecommerce</title>
     <meta name="author" content="SEIKO">
     <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="~/favicon.ico">
     @RenderSection("css", false)
 
     <link href="~/Assets/css/custom.css" rel="stylesheet" />
@@ -24,11 +24,165 @@
             </div>
         </div>
     </div>
+    <div class="fixed-btns demo-mode">
+        <!-- Tools Panel -->
+        <div id="toolsPanel">
+            <div class="btn-wrapper tools-btn">
+                <a href="#" class="btn"><img src="~/Assets/images/animate-tools.gif" class="img-responsive" alt=""></a>
+            </div>
+            <div class="block-tools">
+                <label class="radio">
+                    <input id="radio9" type="radio" name="layoutmodeblock" value="fullwidth">
+                    <span class="outer"><span class="inner"></span></span>FULLWIDTH
+                </label>
+                <label class="radio">
+                    <input id="radio10" type="radio" name="layoutmodeblock" value="boxed">
+                    <span class="outer"><span class="inner"></span></span>BOXED
+                </label>
+                <label class="radio">
+                    <input id="radio11" type="radio" name="layoutmodeblock" value="fullboxed">
+                    <span class="outer"><span class="inner"></span></span>FULLBOXED
+                </label>
+                <div class="productpreview" style="display: none;">
+                    <div class="line-div"></div>
+                    <h5>Product preview:</h5>
+                    <label class="radio">
+                        <input id="radio12" type="radio" name="productpreview" value="previewsmall">
+                        <span class="outer"><span class="inner"></span></span>SMALL
+                    </label>
+                    <label class="radio prw2">
+                        <input id="radio13" type="radio" name="productpreview" value="previewsmall2">
+                        <span class="outer"><span class="inner"></span></span>SMALL2
+                    </label>
+                    <label class="radio">
+                        <input id="radio14" type="radio" name="productpreview" value="previewbig">
+                        <span class="outer"><span class="inner"></span></span>BIG
+                    </label>
+                </div>
+            </div>
+            <div class="panel-group" id="toolsAccord">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#toolsAccord" href="#collapseOne"><i class="icon icon-tool-layout"></i>Layout Mode</a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <label class="radio">
+                                <input id="radio1" type="radio" name="layoutmodeall" value="fullwidth">
+                                <span class="outer"><span class="inner"></span></span>FULLWIDTH
+                            </label>
+                            <label class="radio">
+                                <input id="radio2" type="radio" name="layoutmodeall" value="boxed">
+                                <span class="outer"><span class="inner"></span></span>BOXED
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#toolsAccord" href="#collapseTwo"><i class="icon icon-tool-side"></i>Side Panel</a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="checkbox-group">
+                                <input type="checkbox" name="slidepanelshow" id="checkbox1">
+                                <label for="checkbox1"><span class="check"></span><span class="box"></span>SHOW</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#toolsAccord" href="#collapseThree"><i class="icon icon-tool-round"></i>Rounded</a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="checkbox-group">
+                                <input type="checkbox" name="rounded" id="checkbox2">
+                                <label for="checkbox2"><span class="check"></span><span class="box"></span>ON</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#toolsAccord" href="#collapseFour"><i class="icon icon-tool-header"></i>Header</a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <h5>sticky</h5>
+                            <div class="checkbox-group">
+                                <input type="checkbox" name="sticky" id="checkbox3">
+                                <label for="checkbox3"><span class="check"></span><span class="box"></span>ON</label>
+                            </div>
+                            <div class="divider"></div>
+                            <h5>blackout</h5>
+                            <div class="checkbox-group">
+                                <input type="checkbox" name="blackout" id="checkbox4">
+                                <label for="checkbox4"><span class="check"></span><span class="box"></span>ON</label>
+                            </div>
+                            <div class="divider"></div>
+                            <h5>animation</h5>
+                            <div class="radioset">
+                                <label class="radio">
+                                    <input id="radio3" type="radio" name="menuanimation" value="none">
+                                    <span class="outer"><span class="inner"></span></span>NONE
+                                </label>
+                                <label class="radio">
+                                    <input id="radio4" type="radio" name="menuanimation" value="fade">
+                                    <span class="outer"><span class="inner"></span></span>FADE
+                                </label>
+                                <label class="radio">
+                                    <input id="radio5" type="radio" name="menuanimation" value="slide">
+                                    <span class="outer"><span class="inner"></span></span>SLIDETOP
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#toolsAccord" href="#collapseFive"><i class="icon icon-tool-color"></i>Color Scheme</a>
+                        </h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="color-list">
+                                <li class="active"><a href="#" title="Red" data-tooltip="Red"><span class="value" data-color=""><span class="color color-red"></span></span></a></li>
+                                <li><a href="#" data-tooltip="Orange" title="Orange" data-color="color-orange"><span class="value"><span class="color color-orange"></span></span></a></li>
+                                <li><a href="#" data-tooltip="Blue" title="Blue" data-color="color-blue"><span class="value"><span class="color color-blue"></span></span></a></li>
+                                <li><a href="#" data-tooltip="Light Green" title="Light Green" data-color="color-lightgreen"><span class="value"><span class="color color-lightgreen"></span></span></a></li>
+                                <li><a href="#" data-tooltip="Green Caribbean" title="Green Caribbean" data-color="color-caribbean"><span class="value"><span class="color color-caribbean"></span></span></a></li>
+                                <li><a href="#" data-tooltip="Green" title="Green" data-color="color-green"><span class="value"><span class="color color-green"></span></span></a></li>
+                                <li><a href="#" data-tooltip="Pink" title="Pink" data-color="color-pink"><span class="value"><span class="color color-pink"></span></span></a></li>
+                                <li><a href="#" data-tooltip="Violet" title="Violet" data-color="color-violet"><span class="value"><span class="color color-violet"></span></span></a></li>
+                                <li><a href="#" data-tooltip="Light Blue" title="Light Blue" data-color="color-lightblue"><span class="value"><span class="color color-lightblue"></span></span></a></li>
+                                <li><a href="#" data-tooltip="Tomato" title="Tomato" data-color="color-tomato"><span class="value"><span class="color color-tomato"></span></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tools Panel -->
+        <!-- Back To Top -->
+        <a href="#" class="top-fixed-btn back-to-top"><i class="icon icon-arrow-up"></i></a>
+        <!-- /Back To Top -->
+    </div>
     <div id="wrapper">
         <!-- Page -->
         <div class="page-wrapper">
             <!-- Header -->
-            <header class="page-header variant-1 fullboxed sticky smart">
+            <header class="page-header variant-2 fullboxed sticky smart">
                 <div class="navbar">
                     <div class="container">
                         <!-- Menu Toggle -->
@@ -1024,5 +1178,13 @@
     @RenderSection("js", false)
     @RenderSection("scripts", required: false)
     <script src="~/Assets/JsController/NavbarJS.js"></script>
+    <script>
+        var google_text = $('button[id="Google"]').text();
+        var facebook_text = $('button[id="Facebook"]').text();
+        $('button[id="Google"]').addClass('btn-google');
+        $('button[id="Facebook"]').addClass('btn-facebook');
+        $('button[id="Google"]').html('<i class="fa fa-google-plus" aria-hidden="true"></i> ' + google_text + '+');
+        $('button[id="Facebook"]').html('<i class="fa fa-facebook" aria-hidden="true"></i> ' + facebook_text);
+    </script>
 </body>
 </html>

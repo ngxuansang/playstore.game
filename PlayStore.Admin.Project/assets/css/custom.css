@@ -1,14 +1,16 @@
 /* Write your custom CSS here */
 
-html, body{
+html, body {
     height: 100%;
     width: 100%;
 }
 
-.text-danger{
+.text-danger {
+    margin-left: 3rem;
+    font-size: 13px;
     color: #f44336 !important;
 }
 
-.text-danger *{
-    color: #f44336 !important;
-}
+    .text-danger * {
+        color: #f44336 !important;
+    }

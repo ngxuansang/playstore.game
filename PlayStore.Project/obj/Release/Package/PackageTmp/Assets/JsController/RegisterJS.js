@@ -23,3 +23,22 @@ $('body').on('change', '#LocationParentID', function () {
         }
     });
 });
+
+function stateDropdownData(city_id, state_id) {
+    $.ajax({
+        type: "POST",
+        url: "/Account/GetStateListByCity",
+        data: { cityID: city_id },
+        success: function (response) {
+            debugger
+            var objects = JSON.parse(response);
+            $('#LocationID').empty();
+            $('#LocationID').append('<option value="0">Select state</option>');
+            for (var i = 0; i < objects.length; i++) {
+                $('#LocationID').append('<option value="' + objects[i].ID + '">' + objects[i].LocationName + '</option>');
+            }
+
+            $('#LocationID').val(state_id);
+        }
+    });
+}

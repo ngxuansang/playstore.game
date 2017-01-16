@@ -31,6 +31,9 @@
 
     <!-- Icon Font -->
     <link href="~/Assets/fonts/icomoon-reg/style.css" rel="stylesheet">
+
+    <!--Datetime picker-->
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
 }
 
 @section js{
@@ -54,23 +57,38 @@
     <script src="~/Assets/js/megamenu.min.js"></script>
     <script src="~/Assets/js/tools.min.js"></script>
     <script src="~/Assets/js/app.js"></script>
+
+    <!--Datetime picker-->
+    <script type="text/javascript" src="~/Scripts/moment.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+
+    <script src="~/Assets/JsController/RegisterJS.js"></script>
     <script>
         $(document).ready(function () {
+            $('#BirthDate').datetimepicker({
+                format: 'MM/DD/YYYY',
+            });
+            $('#FullName').css('text-transform', 'capitalize');
             $('header').attr('class', 'page-header variant-2 fullboxed sticky smart');
+            $('#LocationParentID').val($('#LocationParentID').attr('data-city-id-selected'));
+            //stateDropdownData(parseInt($('#LocationParentID').attr('data-city-id-selected')), parseInt($('#LocationID').attr('data-state-id-selected')));
         });
         $('label').append(' <span class="required">*</span>');
     </script>
+
 }
 
 <main class="page-main">
+
     <div class="block">
         <div class="container">
             <ul class="breadcrumbs">
                 <li><a href="@Url.Action("Index", "Home")"><i class="icon icon-home"></i></a></li>
-                <li>/<span>Account Recovery</span></li>
+                <li>/<span>account settings</span></li>
             </ul>
         </div>
     </div>
+
     <div class="block">
         <div class="container">
             <div class="form-card">
@@ -93,32 +111,32 @@
                         @Html.ActionLink("Manage", "ManageLogins") ]
                     </dd>
                     @*
-            Phone Numbers can used as a second factor of verification in a two-factor authentication system.
+                        Phone Numbers can used as a second factor of verification in a two-factor authentication system.
 
-             See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                for details on setting up this ASP.NET application to support two-factor authentication using SMS.
+                         See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                            for details on setting up this ASP.NET application to support two-factor authentication using SMS.
 
-             Uncomment the following block after you have set up two-factor authentication
+                         Uncomment the following block after you have set up two-factor authentication
                     *@
                     @*
-            <dt>Phone Number:</dt>
-            <dd>
-                @(Model.PhoneNumber ?? "None")
-                @if (Model.PhoneNumber != null)
-                {
-                    <br />
-                    <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
-                    using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>[<input type="submit" value="Remove" class="btn-link" />]</text>
-                    }
-                }
-                else
-                {
-                    <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
-                }
-            </dd>
+                        <dt>Phone Number:</dt>
+                        <dd>
+                            @(Model.PhoneNumber ?? "None")
+                            @if (Model.PhoneNumber != null)
+                            {
+                                <br />
+                                <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
+                                using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <text>[<input type="submit" value="Remove" class="btn-link" />]</text>
+                                }
+                            }
+                            else
+                            {
+                                <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
+                            }
+                        </dd>
                     *@
                     <dt>Two-Factor Authentication:</dt>
                     <dd>
@@ -127,28 +145,36 @@
                             for details on setting up this ASP.NET application to support two-factor authentication.
                         </p>
                         @*@if (Model.TwoFactor)
-                {
-                    using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>Enabled
-                        <input type="submit" value="Disable" class="btn btn-link" />
-                        </text>
-                    }
-                }
-                else
-                {
-                    using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>Disabled
-                        <input type="submit" value="Enable" class="btn btn-link" />
-                        </text>
-                    }
-                }*@
+                            {
+                                using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <text>Enabled
+                                    <input type="submit" value="Disable" class="btn btn-link" />
+                                    </text>
+                                }
+                            }
+                            else
+                            {
+                                using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <text>Disabled
+                                    <input type="submit" value="Enable" class="btn btn-link" />
+                                    </text>
+                                }
+                            }*@
                     </dd>
                 </dl>
+            </div>
+        </div>
+    </div>
 
+    <div class="block">
+        <div class="container">
+            <div class="form-card">
+                <h4>Personal information</h4>
+                @Html.Action("UpdatePersonalInfomation", "Account", new { userId = ViewBag.UserID })
             </div>
         </div>
     </div>

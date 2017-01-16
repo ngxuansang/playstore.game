@@ -4,67 +4,143 @@
     ViewBag.Title = "Manage your external logins";
 }
 
-<h2>@ViewBag.Title.</h2>
+@section css{
+    <!-- Vendor -->
+    <link href="~/Assets/js/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/slick/slick.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/swiper/swiper.min.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/magnificpopup/dist/magnific-popup.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/nouislider/nouislider.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/darktooltip/dist/darktooltip.css" rel="stylesheet">
+    <link href="~/Assets/css/animate.css" rel="stylesheet">
 
-<p class="text-success">@ViewBag.StatusMessage</p>
-@{
-    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
-    if (loginProviders.Count() == 0) {
-        <div>
-            <p>
-                There are no external authentication services configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=313242">this article</a>
-                for details on setting up this ASP.NET application to support logging in via external services.
-            </p>
-        </div>
-    }
-    else
-    {
-        if (Model.CurrentLogins.Count > 0)
-        {
-            <h4>Registered Logins</h4>
-            <table class="table">
-                <tbody>
-                    @foreach (var account in Model.CurrentLogins)
-                    {
-                        <tr>
-                            <td>@account.LoginProvider</td>
-                            <td>
-                                @if (ViewBag.ShowRemoveButton)
-                                {
-                                    using (Html.BeginForm("RemoveLogin", "Manage"))
-                                    {
-                                        @Html.AntiForgeryToken()
-                                        <div>
-                                            @Html.Hidden("loginProvider", account.LoginProvider)
-                                            @Html.Hidden("providerKey", account.ProviderKey)
-                                            <input type="submit" class="btn btn-default" value="Remove" title="Remove this @account.LoginProvider login from your account" />
-                                        </div>
-                                    }
-                                }
-                                else
-                                {
-                                    @: &nbsp;
-                                }
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        }
-        if (Model.OtherLogins.Count > 0)
-        {
-            using (Html.BeginForm("LinkLogin", "Manage"))
-            {
-                @Html.AntiForgeryToken()
-                <div id="socialLoginList">
-                <p>
-                    @foreach (AuthenticationDescription p in Model.OtherLogins)
-                    {
-                        <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
-                    }
-                </p>
-                </div>
-            }
-        }
-    }
+    <!-- Custom -->
+    <link href="~/Assets/css/style.css" rel="stylesheet">
+    <link href="~/Assets/css/megamenu.css" rel="stylesheet">
+    <link href="~/Assets/css/tools.css" rel="stylesheet">
+
+    <!-- Color Schemes -->
+    <link href="~/Assets/css/style-color-pink.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-green.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-lightgreen.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-blue.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-lightblue.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-violet.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-tomato.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-caribbean.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-orange.css" rel="stylesheet">
+
+    <!-- Icon Font -->
+    <link href="~/Assets/fonts/icomoon-reg/style.css" rel="stylesheet">
 }
+
+@section js{
+    <script src="~/Assets/js/vendor/jquery/jquery.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Assets/js/vendor/swiper/swiper.min.js"></script>
+    <script src="~/Assets/js/vendor/slick/slick.min.js"></script>
+    <script src="~/Assets/js/vendor/parallax/parallax.js"></script>
+    <script src="~/Assets/js/vendor/isotope/isotope.pkgd.min.js"></script>
+    <script src="~/Assets/js/vendor/magnificpopup/dist/jquery.magnific-popup.js"></script>
+    <script src="~/Assets/js/vendor/countdown/jquery.countdown.min.js"></script>
+    <script src="~/Assets/js/vendor/nouislider/nouislider.min.js"></script>
+    <script src="~/Assets/js/vendor/ez-plus/jquery.ez-plus.js"></script>
+    <script src="~/Assets/js/vendor/tocca/tocca.min.js"></script>
+    <script src="~/Assets/js/vendor/bootstrap-tabcollapse/bootstrap-tabcollapse.js"></script>
+    <script src="~/Assets/js/vendor/scrollLock/jquery-scrollLock.min.js"></script>
+    <script src="~/Assets/js/vendor/darktooltip/dist/jquery.darktooltip.js"></script>
+    <script src="~/Assets/js/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="~/Assets/js/vendor/instafeed/instafeed.min.js"></script>
+    <script src="~/Assets/js/megamenu.min.js"></script>
+    <script src="~/Assets/js/tools.min.js"></script>
+    <script src="~/Assets/js/app.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('header').attr('class', 'page-header variant-2 fullboxed sticky smart');
+        });
+        $('label').append(' <span class="required">*</span>');
+    </script>
+}
+
+<main class="page-main">
+    <div class="block">
+        <div class="container">
+            <ul class="breadcrumbs">
+                <li><a href="@Url.Action("Index", "Home")"><i class="icon icon-home"></i></a></li>
+                <li>/<a href="@Url.Action("Index", "Manage")">account settings</a></li>
+                <li>/<span>External logins</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="block">
+        <div class="container">
+            <div class="form-card">
+                <h4>@ViewBag.Title</h4>
+                <p class="text-success">@ViewBag.StatusMessage</p>
+                @{
+                    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+                    if (loginProviders.Count() == 0)
+                    {
+                        <div>
+                            <p>
+                                There are no external authentication services configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=313242">this article</a>
+                                for details on setting up this ASP.NET application to support logging in via external services.
+                            </p>
+                        </div>
+                    }
+                    else
+                    {
+                        if (Model.CurrentLogins.Count > 0)
+                        {
+                            <p>Registered Logins</p>
+                            <table class="table">
+                                <tbody>
+                                    @foreach (var account in Model.CurrentLogins)
+                    {
+                                        <tr>
+                                            <td>@account.LoginProvider</td>
+                                            <td>
+                                                @if (ViewBag.ShowRemoveButton)
+                                                {
+                                                    using (Html.BeginForm("RemoveLogin", "Manage"))
+                                                    {
+                                                        @Html.AntiForgeryToken()
+                                                        <div>
+                                                            @Html.Hidden("loginProvider", account.LoginProvider)
+                                                            @Html.Hidden("providerKey", account.ProviderKey)
+                                                            <input type="submit" class="btn btn-default" value="Remove" title="Remove this @account.LoginProvider login from your account" />
+                                                        </div>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    @: &nbsp;
+                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        if (Model.OtherLogins.Count > 0)
+                        {
+                            using (Html.BeginForm("LinkLogin", "Manage"))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div id="socialLoginList">
+                                    <p>
+                                        @foreach (AuthenticationDescription p in Model.OtherLogins)
+                                        {
+                                            <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                                        }
+                                    </p>
+                                </div>
+                            }
+                        }
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</main>

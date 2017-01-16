@@ -1,0 +1,62 @@
+﻿@for (int i = 1; i <= 3; i++)
+{
+    string data_class = $"text{i}";
+    string title_id = $"title{i}";
+    string animate_id = $"title{i}_animate";
+    string delay_id = $"delay_title{i}";
+    <div class="col s12">
+        <div class="row">
+            <div class="col s3 input-field">
+                <input type="text" data-class="@data_class" class="validate" id="@title_id" value="" />
+                <label for="@title_id">Title @i</label>
+            </div>
+            <div class="col s3">
+                <label for="@animate_id">Animated title @i</label>
+                <select class="browser-default combobox_animate" id="@animate_id">
+                    <option value="disabled" disabled="" selected>Choose your animate title @i</option>
+                </select>
+            </div>
+            <div class="col s3 input-field">
+                <input type="text" class="validate" id="@delay_id" value="" />
+                <label for="@delay_id">Delay time title @i</label>
+            </div>
+            <div class="col s3 input-field">
+                <div class="row">
+                    <div class="col s6">
+                        <p class="p-v-xs">
+                            <input type="checkbox" id="IsBold_@title_id">
+                            <label for="IsBold_@title_id">Bold</label>
+                        </p>
+                    </div>
+                    <div class="col s6">
+                        <p class="p-v-xs">
+                            <input type="checkbox" id="IsItalic_@title_id">
+                            <label for="IsItalic_@title_id">Italic</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="col s12">
+    <div class="col s3 input-field">
+        <input type="text" class="validate" id="caption_delay_time" value="" />
+        <label for="caption_delay_time">Caption delay time</label>
+    </div>
+    <div class="col s3">
+        <label for="caption_animate">Animated caption</label>
+        <select class="browser-default combobox_animate" id="caption_animate">
+            <option value="disabled" disabled="" selected>Choose your animate button</option>
+        </select>
+    </div>
+    <div class="col s3 input-field">
+        <input type="text" class="validate" id="button_title" value="" />
+        <label for="button_title">Button title</label>
+    </div>
+    <div class="col s3 input-field">
+        <input type="text" class="validate" id="button_link" value="" />
+        <label for="button_link">Button link</label>
+    </div>
+</div>

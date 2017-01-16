@@ -10,6 +10,7 @@
 
     <!-- Theme Styles -->
     <link href="~/assets/css/alpha.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/css/custom.css" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -24,14 +25,24 @@
 @section js{
     <!-- Javascripts -->
     <script src="~/assets/plugins/jquery/jquery-2.2.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/assets/plugins/materialize/js/materialize.min.js"></script>
     <script src="~/assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
     <script src="~/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
     <script src="~/assets/js/alpha.min.js"></script>
     <script src="~/assets/js/pages/ui-carousel.js"></script>
     <script src="~/assets/js/pages/form_elements.js"></script>
-    <script src="~/assets/js/pages/ui-modals.js"></script>
+    <script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <!--Controller-->
     <script src="~/assets/js/JsController/CarouselSettingController.js"></script>
+    <!--Custom-->
+    <script>
+        $(document).ready(function () {
+            $('input[name="IsEnabled"][type="hidden"][value="false"]').remove();
+            $('input[name="IsCaptionContainer"][type="hidden"][value="false"]').remove();
+        });
+    </script>
 }
 @using PlayStore.Project.ViewModels.PlayStore.Project.ViewModel.AdminPage.PageSetting;
 @model CarouselSettingViewModel
@@ -138,7 +149,14 @@
                 </div>
             </div>
         </div>
-        <div id="create_carousel" class="col s12" style="display: none;margin-top: -7px;"></div>
+        <div id="create_carousel" class="col s12" style="display: none;margin-top: -7px;">
+            <div class="card ">
+                <div class="card-title"></div>
+                <div class="card-content">
+                    @Html.Action("Create", "PageSetting")
+                </div>
+            </div>
+        </div>
         <div id="detail_carousel" class="col s12" style="display: none;margin-top: -7px;">
             <div class="card white darken-1">
                 <div class="card-content">

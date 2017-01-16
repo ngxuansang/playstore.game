@@ -2,34 +2,176 @@
 @{
     ViewBag.Title = "Register";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>Associate your @ViewBag.LoginProvider account.</h3>
 
-@using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
+@section css{
+    <!-- Vendor -->
+    <link href="~/Assets/js/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/slick/slick.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/swiper/swiper.min.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/magnificpopup/dist/magnific-popup.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/nouislider/nouislider.css" rel="stylesheet">
+    <link href="~/Assets/js/vendor/darktooltip/dist/darktooltip.css" rel="stylesheet">
+    <link href="~/Assets/css/animate.css" rel="stylesheet">
 
-    <h4>Association Form</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <p class="text-info">
-        You've successfully authenticated with <strong>@ViewBag.LoginProvider</strong>.
-        Please enter a user name for this site below and click the Register button to finish
-        logging in.
-    </p>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
+    <!-- Custom -->
+    <link href="~/Assets/css/style.css" rel="stylesheet">
+    <link href="~/Assets/css/megamenu.css" rel="stylesheet">
+    <link href="~/Assets/css/tools.css" rel="stylesheet">
+
+    <!-- Color Schemes -->
+    <link href="~/Assets/css/style-color-pink.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-green.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-lightgreen.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-blue.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-lightblue.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-violet.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-tomato.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-caribbean.css" rel="stylesheet">
+    <link href="~/Assets/css/style-color-orange.css" rel="stylesheet">
+
+    <!-- Icon Font -->
+    <link href="~/Assets/fonts/icomoon-reg/style.css" rel="stylesheet">
+
+    <!--Datetime picker-->
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
 }
+
+@section js{
+    <script src="~/Assets/js/vendor/jquery/jquery.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Assets/js/vendor/swiper/swiper.min.js"></script>
+    <script src="~/Assets/js/vendor/slick/slick.min.js"></script>
+    <script src="~/Assets/js/vendor/parallax/parallax.js"></script>
+    <script src="~/Assets/js/vendor/isotope/isotope.pkgd.min.js"></script>
+    <script src="~/Assets/js/vendor/magnificpopup/dist/jquery.magnific-popup.js"></script>
+    <script src="~/Assets/js/vendor/countdown/jquery.countdown.min.js"></script>
+    <script src="~/Assets/js/vendor/nouislider/nouislider.min.js"></script>
+    <script src="~/Assets/js/vendor/ez-plus/jquery.ez-plus.js"></script>
+    <script src="~/Assets/js/vendor/tocca/tocca.min.js"></script>
+    <script src="~/Assets/js/vendor/bootstrap-tabcollapse/bootstrap-tabcollapse.js"></script>
+    <script src="~/Assets/js/vendor/scrollLock/jquery-scrollLock.min.js"></script>
+    <script src="~/Assets/js/vendor/darktooltip/dist/jquery.darktooltip.js"></script>
+    <script src="~/Assets/js/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="~/Assets/js/vendor/instafeed/instafeed.min.js"></script>
+    <script src="~/Assets/js/megamenu.min.js"></script>
+    <script src="~/Assets/js/tools.min.js"></script>
+    <script src="~/Assets/js/app.js"></script>
+
+    <!--Datetime picker-->
+    <script type="text/javascript" src="~/Scripts/moment.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+
+    <!--Controller-->
+    <script src="~/Assets/JsController/RegisterJS.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#BirthDate').datetimepicker({
+                format: 'MM/DD/YYYY',
+            });
+            $('header').attr('class', 'page-header variant-2 fullboxed sticky smart');
+        });
+        $('label').append(' <span class="required">*</span>');
+    </script>
+}
+@using PlayStore.Project.Models;
+@using PlayStore.Project.DataAccess.DataModel;
+@{
+    DiaGameEntities db = new DiaGameEntities();
+    var Cities = db.Database.SqlQuery<Location>("get_city").Select(x => new SelectListItem() { Text = x.LocationName, Value = x.ID.ToString() });
+    IEnumerable<SelectListItem> States = db.Database.SqlQuery<Location>($"dbo.get_state_by_city @cityID = {Model.LocationParentID}").Select(x => new SelectListItem() { Text = x.LocationName, Value = x.ID.ToString() });
+}
+
+<main class="page-main">
+    <div class="block">
+        <div class="container">
+            <ul class="breadcrumbs">
+                <li><a href="@Url.Action("Index", "Home")"><i class="icon icon-home"></i></a></li>
+                <li>/<span>Associate account</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="block">
+        <div class="container">
+            <div class="form-card">
+                <h4>Associate Your @ViewBag.LoginProvider Account</h4>
+                @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <p class="text-success">
+                        You've successfully authenticated with <strong>@ViewBag.LoginProvider</strong>.
+                        Please fill infomations for this site below and click the Register button to finish
+                        logging in.
+                    </p>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.FullName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", @style = "text-transform: capitalize;" })
+                            @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.BirthDate, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.BirthDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.LocationParentID, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.LocationParentID, Cities, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.LocationParentID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.LocationID, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.LocationID, States, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.LocationID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" class="btn btn-default" value="Register" />
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</main>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
