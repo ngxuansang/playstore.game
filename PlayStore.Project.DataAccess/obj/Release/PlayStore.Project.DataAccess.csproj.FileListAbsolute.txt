@@ -18,3 +18,5 @@ D:\Projects\playstore.game\PlayStore.Project.DataAccess\bin\Release\EntityFramew
 D:\Projects\playstore.game\PlayStore.Project.DataAccess\obj\Release\PlayStore.Project.DataAccess.csprojResolveAssemblyReference.cache
 D:\Projects\playstore.game\PlayStore.Project.DataAccess\obj\Release\PlayStore.Project.DataAccess.dll
 D:\Projects\playstore.game\PlayStore.Project.DataAccess\obj\Release\PlayStore.Project.DataAccess.pdb
+D:\Projects\playstore.game\PlayStore.Project.DataAccess\bin\Release\Project.ICore.dll
+D:\Projects\playstore.game\PlayStore.Project.DataAccess\bin\Release\Project.ICore.pdb

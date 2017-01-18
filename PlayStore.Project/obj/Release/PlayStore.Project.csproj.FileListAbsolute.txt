@@ -202,3 +202,5 @@ D:\Projects\playstore.game\PlayStore.Project\obj\Release\PlayStore.Project.Migra
 D:\Projects\playstore.game\PlayStore.Project\obj\Release\PlayStore.Project.csproj.GenerateResource.Cache
 D:\Projects\playstore.game\PlayStore.Project\obj\Release\PlayStore.Project.dll
 D:\Projects\playstore.game\PlayStore.Project\obj\Release\PlayStore.Project.pdb
+D:\Projects\playstore.game\PlayStore.Project\bin\Project.ICore.dll
+D:\Projects\playstore.game\PlayStore.Project\bin\Project.ICore.pdb

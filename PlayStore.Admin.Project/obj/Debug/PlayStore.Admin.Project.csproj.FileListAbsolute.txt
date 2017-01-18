@@ -98,3 +98,5 @@ D:\Projects\playstore.game\PlayStore.Admin.Project\bin\PlayStore.Project.DataAcc
 D:\Projects\playstore.game\PlayStore.Admin.Project\bin\PlayStore.Project.ViewModels.dll
 D:\Projects\playstore.game\PlayStore.Admin.Project\bin\PlayStore.Project.DataAccess.pdb
 D:\Projects\playstore.game\PlayStore.Admin.Project\bin\PlayStore.Project.ViewModels.pdb
+D:\Projects\playstore.game\PlayStore.Admin.Project\bin\Project.ICore.dll
+D:\Projects\playstore.game\PlayStore.Admin.Project\bin\Project.ICore.pdb

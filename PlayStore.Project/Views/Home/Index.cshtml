@@ -58,6 +58,8 @@
     <script src="~/Assets/js/app.js"></script>
 }
 @using PlayStore.Project.ViewModels.PlayStore.Project.ViewModel.UserPage;
+@using Newtonsoft.Json;
+@using PlayStore.Project.DataAccess.DataModel.Carousel_Models
 @model HomeViewModel
 
 <main class="page-main">
@@ -71,57 +73,68 @@
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <!-- Slides -->
-                        <div class="swiper-slide right" style="background-image: url('http://127.0.0.1/StockImages/SA_LeYuan%202016.11.29%20VOL.018/0035.jpg')" data-thumb="http://127.0.0.1/StockImages/SA_LeYuan%202016.11.29%20VOL.018/0035.jpg">
-                            <div class="wrapper">
-                                <div class="text2-1 animate" data-animate="flipInY" data-delay="0"> Seikō </div>
-                                <div class="text2-2 animate" data-animate="bounceIn" data-delay="500"> Season sale </div>
-                                <div class="text2-3 animate" data-animate="bounceIn" data-delay="1000"> popular brands </div>
-                                <div class="text2-4 animate" data-animate="rubberBand" data-delay="1500"> 70% </div>
-                                <div class="text2-5 animate" data-animate="hinge" data-delay="2000"> OFF </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide right" style="background-image: url('http://127.0.0.1/StockImages/UGirls%20T017/%E7%8B%90%E7%8B%B8%E8%AE%B0_0046.jpg')" data-thumb="http://127.0.0.1/StockImages/UGirls%20T017/%E7%8B%90%E7%8B%B8%E8%AE%B0_0046.jpg">
-                            <div class="wrapper">
-                                <div class="caption animate" data-animate="fadeIn">
-                                    <div class="text1 animate" data-animate="flipInY" data-delay="0"> Seikō </div>
-                                    <div class="text2 animate" data-animate="bounceInLeft" data-delay="500"> <strong>New</strong> collection </div>
-                                    <div class="text3 animate" data-animate="bounceInLeft" data-delay="1500"> WOMEN'S <strong>FASHION</strong> </div>
-                                    <div class="animate" data-animate="fadeIn" data-delay="2000">
-                                        <!-- coolbutton -->
-                                        <a href="#" class="cool-btn" style="-webkit-clip-path: url(#coolButton); clip-path: url(#coolButton);">
-                                            <span>MORE</span>
-                                        </a>
-                                        <svg class="clip-svg">
-                                            <defs>
-                                                <clipPath id="coolButton" clipPathUnits="objectBoundingBox">
-                                                    <polygon points="0 .18, .99 .15, .91 .85, .07 .8" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                        <!-- // coolbutton -->
+                        @foreach (var item in Model.Carousels)
+                        {
+                            switch (item.IsCaptionContainer)
+                            {
+                                case true:
+                                    var contentCaption = JsonConvert.DeserializeObject<CaptionLayout>(item.ContentLayout);
+                                    <div class="swiper-slide" style="background-image: url('@item.ImagePath');" data-thumb="@item.ImagePath">
+                                        <div class="wrapper">
+                                            <div class="caption animate" data-animate="fadeIn">
+                                                @foreach (var title in contentCaption.Titles)
+                                                {
+                                                    <div class="@title.Style animate" data-animate="@title.Animate" data-delay="@title.Delay"> @title.Title </div>
+                                                }
+                                                <div class="animate" data-animate="@contentCaption.CaptionFrame.Animate" data-delay="@contentCaption.CaptionFrame.Delay">
+                                                    <!-- coolbutton -->
+                                                    <a href="#" class="cool-btn" style="-webkit-clip-path: url(#coolButton); clip-path: url(#coolButton);">
+                                                        <span>@contentCaption.Button.Title</span>
+                                                    </a>
+                                                    <svg class="clip-svg">
+                                                        <defs>
+                                                            <clipPath id="coolButton" clipPathUnits="objectBoundingBox">
+                                                                <polygon points="0 .18, .99 .15, .91 .85, .07 .8" />
+                                                            </clipPath>
+                                                        </defs>
+                                                    </svg>
+                                                    <!-- // coolbutton -->
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" style="background-image: url('http://127.0.0.1/StockImages/SA_FeiLin%202016-09-20%20Vol.055/0025.jpg')" data-thumb="http://127.0.0.1/StockImages/SA_FeiLin%202016-09-20%20Vol.055/0025.jpg">
-                            <div class="wrapper">
-                                <div class="text3-1 animate" data-animate="bounceInDown" data-delay="0"> Street </div>
-                                <div class="text3-2 animate" data-animate="bounceInDown" data-delay="500"> Fashion </div>
-                                <div class="text3-3 animate" data-animate="bounceInDown" data-delay="1000"> And </div>
-                                <div class="text3-4 animate" data-animate="bounceIn" data-delay="1500"> Urban </div>
-                                <div class="text3-5 animate" data-animate="bounceIn" data-delay="2000"> Subcultures </div>
-                                <a href="#" class="text3-6 animate" data-animate="rubberBand" data-delay="2500"> SHOP NOW </a>
-                            </div>
-                        </div>
+                                    break;
+                                case false:
+                                    var normalContent = JsonConvert.DeserializeObject<NormalLayout>(item.ContentLayout);
+                                    switch (item.HasButton)
+                                    {
+                                        case true:
 
-                        <div class="swiper-slide" style="background-image: url('http://127.0.0.1/StockImages/SA_WingS%202016.06.03%20Vol.002%20Sera/0032.jpg')" data-thumb="http://127.0.0.1/StockImages/SA_WingS%202016.06.03%20Vol.002%20Sera/0032.jpg">
-                            <div class="wrapper">
-                                <div class="text4-1 animate" data-animate="bounceInLeft" data-delay="0">Summer</div>
-                                <div class="text4-2 animate" data-animate="bounceInDown" data-delay="500">very soon</div>
-                                <div class="text4-3 animate" data-animate="bounceInUp" data-delay="1000">Things to buy a swimsuit at a discount</div>
-                                <a href="#" class="text4-4 animate" data-animate="bounceInLeft" data-delay="1500">SHOP NOW</a>
-                            </div>
-                        </div>
+                                            <div class="swiper-slide" style="background-image: url('@item.ImagePath')" data-thumb="@item.ImagePath">
+                                                <div class="wrapper">
+                                                    @foreach (var title in normalContent.Titles)
+                                                    {
+                                                        <div class="@title.Style animate" data-animate="@title.Animate" data-delay="@title.Delay"> @title.Title </div>
+                                                    }
+                                                    @{var styleButton = normalContent.Titles.Last().Style.Split('-');}
+                                                    <a href="#" class="@styleButton[0]-@(int.Parse(styleButton[1]) + 1) animate" data-animate="@normalContent.Button.Animate" data-delay="@normalContent.Button.Delay"> @normalContent.Button.Title </a>
+                                                </div>
+                                            </div>
+                                            break;
+                                        case false:
+                                            <div class="swiper-slide" style="background-image: url('@item.ImagePath')" data-thumb="@item.ImagePath">
+                                                <div class="wrapper">
+                                                @foreach (var title in normalContent.Titles)
+                                                {
+                                                    <div class="@title.Style animate" data-animate="@title.Animate" data-delay="@title.Delay"> @title.Title </div>
+                                                }
+                                                </div>
+                                            </div>
+                                            break;
+                                    }
+                                    break;
+                            }
+                        }
                     </div>
                     <!-- pagination -->
                     <div class="swiper-pagination"></div>

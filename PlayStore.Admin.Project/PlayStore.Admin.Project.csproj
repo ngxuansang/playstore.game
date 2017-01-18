@@ -1367,6 +1367,7 @@
     <Content Include="assets\plugins\weather-icons-master\_docs\less\mixins.less" />
     <Content Include="assets\plugins\weather-icons-master\_docs\less\styles.less" />
     <Content Include="assets\plugins\weather-icons-master\_docs\less\variables.less" />
+    <None Include="Properties\PublishProfiles\seiko.admin.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1429,6 +1430,7 @@
     <Content Include="Views\PageSetting\NormalControl.cshtml" />
     <Content Include="Views\PageSetting\RenderControl.cshtml" />
     <Content Include="Views\PageSetting\ListAnimte.cshtml" />
+    <Content Include="Views\PageSetting\GetCarouselContentByID.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1448,6 +1450,10 @@
     <ProjectReference Include="..\PlayStore.Project.ViewModels\PlayStore.Project.ViewModels.csproj">
       <Project>{d582ddab-b0ca-4842-990f-4079328cd91c}</Project>
       <Name>PlayStore.Project.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.ICore\Project.ICore.csproj">
+      <Project>{28f76e2d-9676-4cd9-9174-97db1330a9c5}</Project>
+      <Name>Project.ICore</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

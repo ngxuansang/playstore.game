@@ -18,3 +18,5 @@ D:\Projects\playstore.game\PlayStore.Project.DataAccess\bin\Debug\EntityFramewor
 D:\Projects\playstore.game\PlayStore.Project.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
 D:\Projects\playstore.game\PlayStore.Project.DataAccess\bin\Debug\EntityFramework.xml
 D:\Projects\playstore.game\PlayStore.Project.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\playstore.game\PlayStore.Project.DataAccess\bin\Debug\Project.ICore.dll
+D:\Projects\playstore.game\PlayStore.Project.DataAccess\bin\Debug\Project.ICore.pdb

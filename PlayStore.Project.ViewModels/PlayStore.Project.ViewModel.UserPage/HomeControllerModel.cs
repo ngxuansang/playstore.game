@@ -10,7 +10,20 @@ namespace PlayStore.Project.ViewModels.PlayStore.Project.ViewModel.UserPage
 {
     public class HomeViewModel
     {
-        public List<Category> Categories { get; set; }
-        public List<Carousel> Carousels { get; set; }
+        //public List<Category> Categories { get; set; }
+        public List<CarouselHomeViewModel> Carousels { get; set; }
+    }
+
+    public class CarouselHomeViewModel
+    {
+        public long ID { get; set; }
+        public string ImagePath { get; set; }
+        public int SortOrder { get; set; }
+        public bool IsCaptionContainer { get; set; }
+        public bool HasButton { get; set; }
+
+        //ContentLayout as json string
+        //render by JsonConvert class with model CaptionLayout if IsCaptionContainer is true or NormalLayout if IsCaptionContainer is false
+        public string ContentLayout { get; set; }
     }
 }

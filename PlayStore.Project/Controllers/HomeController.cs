@@ -1,4 +1,5 @@
-﻿using PlayStore.Project.DataAccess;
+﻿
+using PlayStore.Project.DataAccess;
 using PlayStore.Project.DataAccess.DatabaseAccess;
 using PlayStore.Project.DataAccess.DataModel;
 using PlayStore.Project.DataAccess.DataModel.Carousel_Models;
@@ -21,7 +22,7 @@ namespace PlayStore.Project.Controllers
         public ActionResult Index()
         {
             HomeViewModel model = new HomeViewModel();
-            
+            model.Carousels = Db.Database.SqlQuery<CarouselHomeViewModel>("user_get_carousel_home").ToList();
             return View(model);
         }
 

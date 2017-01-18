@@ -1,0 +1,5 @@
+D:\Projects\playstore.game\Project.ICore\bin\Release\Project.ICore.dll
+D:\Projects\playstore.game\Project.ICore\bin\Release\Project.ICore.pdb
+D:\Projects\playstore.game\Project.ICore\obj\Release\Project.ICore.csprojResolveAssemblyReference.cache
+D:\Projects\playstore.game\Project.ICore\obj\Release\Project.ICore.dll
+D:\Projects\playstore.game\Project.ICore\obj\Release\Project.ICore.pdb

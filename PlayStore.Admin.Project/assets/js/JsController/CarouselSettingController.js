@@ -45,18 +45,28 @@ $(document).ready(function () {
     DisplayNormalControl();
 });
 
-$('body').on('click', 'button[data-button="detail"]', function () {
-    $('#tab_carousel_detail').removeClass('disabled');
-    $('#tab_carousel_detail').addClass('active');
-    $('#detail_carousel').css('display', 'block');
-    $('.indicator').css('right', '352.667px');
-    $('.indicator').css('left', '352.667px');
+$('body').on('click', 'a[data-button="detail"]', function () {
+    var _carousel_id = parseInt($(this).attr('data-object-id'));
+    $.ajax({
+        type: "get",
+        url: "/PageSetting/GetCarouselContentByID",
+        data: { carouselID: _carousel_id },
+        success: function (response) {
+            $('#modal_carousel_content > .modal-content').html(response);
+        }
+    });
 
-    $('#tab_carousel_view').addClass('disabled');
-    $('#tab_carousel_create').addClass('disabled');
+    var title1_animate = $('#title1_animate').attr('data-title-aminate-selected');
+    $('#title1_animate').val(title1_animate);
 
-    $('#create_carousel').css('display', 'none');
-    $('#carousel_view').css('display', 'none');
+    var title2_animate = $('#title2_animate').attr('data-title-aminate-selected');
+    $('#title2_animate').val(title2_animate);
+
+    var title3_animate = $('#title3_animate').attr('data-title-aminate-selected');
+    $('#title3_animate').val(title3_animate);
+
+    var caption_animate = $('#caption_animate').attr('data-caption-aminate-selected');
+    $('#caption_animate').val(caption_animate);
 });
 
 $('#detail_carousel').on('click', '#btn_save', function () {
@@ -79,70 +89,59 @@ $('#frm_create').on('click', '#btn_create', function (event) {
 
     switch (_option) {
         case 'caption_control':
-            var title1 = $('#title1').val();
-            var title1_animate = $('#title1_animate').val();
-            var delay_title1 = $('#delay_title1').val();
-            var title1_isBold = $('#IsBold_title1').prop('checked');
-            var title1_isItalic = $('#IsItalic_title1').prop('checked');
-
-            var title2 = $('#title2').val();
-            var title2_animate = $('#title2_animate').val();
-            var delay_title2 = $('#delay_title2').val();
-            var title2_isBold = $('#IsBold_title2').prop('checked');
-            var title2_isItalic = $('#IsItalic_title2').prop('checked');
-
-            var title3 = $('#title3').val();
-            var title3_animate = $('#title3_animate').val();
-            var delay_title3 = $('#delay_title3').val();
-            var title3_isBold = $('#IsBold_title3').prop('checked');
-            var title3_isItalic = $('#IsItalic_title3').prop('checked');
-
-            var buttonTitle = $('#button_title').val();
-            var buttonTitle_link = $('#button_link').val();
-
-            var caption_delay_time = $('#caption_delay_time').val();
-            var caption_animate = $('#caption_animate').val();
-
             var _layout = {
                 Titles: [
-                    { Title: title1, Animate: title1_animate, Delay: delay_title1, IsBold: title1_isBold, IsItalic: title1_isItalic },
-                    { Title: title2, Animate: title2_animate, Delay: delay_title2, IsBold: title2_isBold, IsItalic: title2_isItalic },
-                    { Title: title3, Animate: title3_animate, Delay: delay_title3, IsBold: title3_isBold, IsItalic: title3_isItalic }
+                    { Title: $('#title1').val(), Animate: $('#title1_animate').val(), Delay: $('#delay_title1').val(), IsBold: $('#IsBold_title1').prop('checked'), IsItalic: $('#IsItalic_title1').prop('checked'), Style: $('#title1').attr('data-class') },
+                    { Title: $('#title2').val(), Animate: $('#title2_animate').val(), Delay: $('#delay_title2').val(), IsBold: $('#IsBold_title2').prop('checked'), IsItalic: $('#IsItalic_title2').prop('checked'), Style: $('#title2').attr('data-class') },
+                    { Title: $('#title3').val(), Animate: $('#title3_animate').val(), Delay: $('#delay_title3').val(), IsBold: $('#IsBold_title3').prop('checked'), IsItalic: $('#IsItalic_title3').prop('checked'), Style: $('#title3').attr('data-class') }
                 ],
-                Button: { Title: buttonTitle, Link: buttonTitle_link },
-                CaptionFrame: { Animate: caption_animate, Delay: caption_delay_time }
+                Button: { Title: $('#button_title').val(), Link: $('#button_link').val() },
+                CaptionFrame: { Animate: $('#caption_animate').val(), Delay: $('#caption_delay_time').val() }
             };
-            //var _layout = {
-            //    Title1: title1,
-            //    Title1Animate: title1_animate,
-            //    Title1Delay: delay_title1,
-            //    Title1Bold: title1_isBold,
-            //    Title1Italic: title1_isItalic,
 
-            //    Title2: title2,
-            //    Title2Animate: title2_animate,
-            //    Title2Delay: delay_title2,
-            //    Title2Bold: title2_isBold,
-            //    Title2Italic: title2_isItalic,
-
-            //    Title3: title3,
-            //    Title3Animate: title3_animate,
-            //    Title3Delay: delay_title3,
-            //    Title3Bold: title3_isBold,
-            //    Title3Italic: title3_isItalic,
-
-            //    ButtonTitle: buttonTitle,
-            //    ButtonAnimate: buttonTitle_animate,
-            //    ButtonDelay: delay_buttonTitle,
-
-            //    CaptionAnimate: caption_delay_time,
-            //    CaptionDelay: caption_animate
-            //};
-            console.log(_layout);
             createCarouselObject(_basicCarouselJson, _option, _layout);
             break;
         case 'normal_control':
-            console.log(_option);
+            var layout_selected = $('#selected_type').attr('data-selected');
+            switch (layout_selected) {
+                case 'text2':
+                    var _layout = {
+                        Titles: [
+                            { Title: $('#title1').val(), Animate: $('#title1_animate').val(), Delay: $('#delay_title1').val(), IsBold: $('#IsBold_title1').prop('checked'), IsItalic: $('#IsItalic_title1').prop('checked'), Style: $('#title1').attr('data-class') },
+                            { Title: $('#title2').val(), Animate: $('#title2_animate').val(), Delay: $('#delay_title2').val(), IsBold: $('#IsBold_title2').prop('checked'), IsItalic: $('#IsItalic_title2').prop('checked'), Style: $('#title2').attr('data-class') },
+                            { Title: $('#title3').val(), Animate: $('#title3_animate').val(), Delay: $('#delay_title3').val(), IsBold: $('#IsBold_title3').prop('checked'), IsItalic: $('#IsItalic_title3').prop('checked'), Style: $('#title3').attr('data-class') },
+                            { Title: $('#title4').val(), Animate: $('#title4_animate').val(), Delay: $('#delay_title4').val(), IsBold: $('#IsBold_title4').prop('checked'), IsItalic: $('#IsItalic_title4').prop('checked'), Style: $('#title4').attr('data-class') },
+                            { Title: $('#title5').val(), Animate: $('#title5_animate').val(), Delay: $('#delay_title5').val(), IsBold: $('#IsBold_title5').prop('checked'), IsItalic: $('#IsItalic_title5').prop('checked'), Style: $('#title5').attr('data-class') }
+                        ],
+                        Button: null
+                    };
+                    createCarouselObject(_basicCarouselJson, _option, _layout);
+                    break;
+                case 'text3':
+                    var _layout = {
+                        Titles: [
+                            { Title: $('#title1').val(), Animate: $('#title1_animate').val(), Delay: $('#delay_title1').val(), IsBold: $('#IsBold_title1').prop('checked'), IsItalic: $('#IsItalic_title1').prop('checked'), Style: $('#title1').attr('data-class') },
+                            { Title: $('#title2').val(), Animate: $('#title2_animate').val(), Delay: $('#delay_title2').val(), IsBold: $('#IsBold_title2').prop('checked'), IsItalic: $('#IsItalic_title2').prop('checked'), Style: $('#title2').attr('data-class') },
+                            { Title: $('#title3').val(), Animate: $('#title3_animate').val(), Delay: $('#delay_title3').val(), IsBold: $('#IsBold_title3').prop('checked'), IsItalic: $('#IsItalic_title3').prop('checked'), Style: $('#title3').attr('data-class') },
+                            { Title: $('#title4').val(), Animate: $('#title4_animate').val(), Delay: $('#delay_title4').val(), IsBold: $('#IsBold_title4').prop('checked'), IsItalic: $('#IsItalic_title4').prop('checked'), Style: $('#title4').attr('data-class') },
+                            { Title: $('#title5').val(), Animate: $('#title5_animate').val(), Delay: $('#delay_title5').val(), IsBold: $('#IsBold_title5').prop('checked'), IsItalic: $('#IsItalic_title5').prop('checked'), Style: $('#title5').attr('data-class') }
+                        ],
+                        Button: { Title: $('#button_title').val(), Animate: $('#button_animate').val(), Delay: $('#delay_time_button').val(), Link: $('#button_link').val() }
+                    };
+                    createCarouselObject(_basicCarouselJson, _option, _layout);
+                    break;
+                case 'text4':
+                    var _layout = {
+                        Titles: [
+                            { Title: $('#title1').val(), Animate: $('#title1_animate').val(), Delay: $('#delay_title1').val(), IsBold: $('#IsBold_title1').prop('checked'), IsItalic: $('#IsItalic_title1').prop('checked'), Style: $('#title1').attr('data-class') },
+                            { Title: $('#title2').val(), Animate: $('#title2_animate').val(), Delay: $('#delay_title2').val(), IsBold: $('#IsBold_title2').prop('checked'), IsItalic: $('#IsItalic_title2').prop('checked'), Style: $('#title2').attr('data-class') },
+                            { Title: $('#title3').val(), Animate: $('#title3_animate').val(), Delay: $('#delay_title3').val(), IsBold: $('#IsBold_title3').prop('checked'), IsItalic: $('#IsItalic_title3').prop('checked'), Style: $('#title3').attr('data-class') }
+                        ],
+                        Button: { Title: $('#button_title').val(), Animate: $('#button_animate').val(), Delay: $('#delay_time_button').val(), Link: $('#button_link').val() }
+                    };
+                    createCarouselObject(_basicCarouselJson, _option, _layout);
+                    break;
+            }
             break;
     }
 });
@@ -188,7 +187,7 @@ $('body').on('change', '#combobox_layout', function () {
     var class_name = $(this).val();
     var data_range = parseInt($(this).find('option[value="' + class_name + '"]').attr('data-range'));
     var data_button = parseInt($(this).find('option[value="' + class_name + '"]').attr('data-button'));
-
+    $('#selected_type').attr('data-selected', $(this).val());
     $.ajax({
         type: "GET",
         url: "/PageSetting/RenderControl",
@@ -199,4 +198,52 @@ $('body').on('change', '#combobox_layout', function () {
             getListAnimate();
         }
     });
+});
+
+$('body').on('click', 'button[data-button="save"]', function () {
+    var _carousel_id = parseInt($(this).attr('data-object-id'));
+    var _beginDate = $('#begin_date-' + _carousel_id).val();
+    var _endDate = $('#end_date-' + _carousel_id).val();
+    var isEnabled = $('#checkbox-' + _carousel_id).prop('checked');
+    var _sortOrder = $('#sort_order-' + _carousel_id).val();
+    var _img_source = $('#img-' + _carousel_id).attr('src');
+    var data = {
+        ID: _carousel_id,
+        ImagePath: _img_source,
+        BeginDate: _beginDate,
+        EndDate: _endDate,
+        IsEnabled: isEnabled,
+        SortOrder: _sortOrder
+    };
+    $.ajax({
+        type: "POST",
+        url: "/PageSetting/UpdateCarousel",
+        data: { json: JSON.stringify(data) },
+        dataType: "json",
+        success: function (response) {
+            switch (response.IsError) {
+                case 0:
+                    swal({
+                        title: "Carousel is updated !",
+                        text: response.Messages,
+                        type: "success",
+                        showCancelButton: true,
+                        confirmButtonText: "Reload page",
+                        closeOnConfirm: false
+                    },
+                    function () {
+                        window.location.reload();
+                    });
+                    break;
+                case 1:
+                    swal("Update Failed", response.Messages, "error");
+                    break;
+            }
+        }
+    });
+});
+
+$('body').on('change', '.img_change_event', function () {
+    var carousel_id = parseInt($(this).attr('data-object-id'));
+    $('#img-' + carousel_id).attr('src', $(this).val());
 });

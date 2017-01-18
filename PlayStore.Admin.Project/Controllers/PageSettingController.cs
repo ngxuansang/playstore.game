@@ -4,6 +4,7 @@ using PlayStore.Project.DataAccess.DataModel.Carousel_Models;
 using PlayStore.Project.ViewModels.PlayStore.Project.ViewModel.AdminPage.PageSetting;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -18,14 +19,32 @@ namespace PlayStore.Admin.Project.Controllers
         public ActionResult Index()
         {
             CarouselSettingViewModel model = new CarouselSettingViewModel();
+            model.Carousels = db.Database.SqlQuery<Carousel>("get_carousel_basic").ToList();
             return View(model);
+        }
+
+        [HttpPost]
+        //POST: /PageSetting/UpdateCarousel
+        public ActionResult UpdateCarousel(string json)
+        {
+            try
+            {
+                var carousel = JsonConvert.DeserializeObject<Carousel>(json);
+                //update database
+                carousel.Update(carousel);
+                return Json(new { IsError = 0, Messages = "Update successful !" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { IsError = 1, Messages = ex.Message });
+            }
         }
 
         [AllowAnonymous]
         //GET: /PageSetting/Create
         public ActionResult Create()
         {
-            return PartialView();
+            return PartialView(new CaptionLayout());
         }
 
         [HttpPost]
@@ -35,16 +54,27 @@ namespace PlayStore.Admin.Project.Controllers
             try
             {
                 Carousel carousel = JsonConvert.DeserializeObject<Carousel>(basicCarousel);
+                //insert basic
+                long carouselID = carousel.Insert();
                 switch (option)
                 {
                     case "caption_control":
                         CaptionLayout captionLayout = JsonConvert.DeserializeObject<CaptionLayout>(layout);
+                        captionLayout.CarouselOwnerID = carouselID;
+                        captionLayout.JsonLayout = layout;
+                        //add database
+                        var contentCaptionID = captionLayout.Insert();
                         break;
+
                     case "normal_control":
+                        NormalLayout normalLayout = JsonConvert.DeserializeObject<NormalLayout>(layout);
+                        normalLayout.CarouselOwnerID = carouselID;
+                        normalLayout.JsonLayout = layout;
+                        //add database
+                        var contentNormalID = normalLayout.Insert();
                         break;
                 }
-                return Json(new { IsError = 0, Messages = "Create carousel unsuccessful !" });
-                //add database
+                return Json(new { IsError = 0, Messages = "Create carousel successful !" });
             }
             catch (Exception ex)
             {
@@ -81,6 +111,14 @@ namespace PlayStore.Admin.Project.Controllers
         public ActionResult ListAnimte()
         {
             return PartialView();
+        }
+
+        //POST: /PageSetting/GetCarouselContentByID
+        public ActionResult GetCarouselContentByID(long carouselID)
+        {
+            var content = db.Database.SqlQuery<CarouselContent>("admin_get_carousel_content @carouselID", 
+                new SqlParameter("@carouselID", carouselID)).First();
+            return PartialView(content);
         }
     }
 }
