@@ -36,10 +36,10 @@
                                     @switch (captionLayout.Titles[i - 1].IsBold)
                                     {
                                         case true:
-                                            <input type="checkbox" id="IsBold_@title_id" checked>
+                                    <input type="checkbox" id="IsBold_@title_id" checked>
                                             break;
                                         case false:
-                                            <input type="checkbox" id="IsBold_@title_id">
+                                    <input type="checkbox" id="IsBold_@title_id">
                                             break;
                                     }
                                     <label for="IsBold_@title_id">Bold</label>
@@ -50,10 +50,10 @@
                                     @switch (captionLayout.Titles[i - 1].IsItalic)
                                     {
                                         case true:
-                                            <input type="checkbox" id="IsItalic_@title_id" checked>
+                                    <input type="checkbox" id="IsItalic_@title_id" checked>
                                             break;
                                         case false:
-                                            <input type="checkbox" id="IsItalic_@title_id">
+                                    <input type="checkbox" id="IsItalic_@title_id">
                                             break;
                                     }
                                     <label for="IsItalic_@title_id">Italic</label>
@@ -88,17 +88,40 @@
         </div>
         <script>
             $(document).ready(function () {
-                var title1_animate = $('#title1_animate').attr('data-title-aminate-selected');
-                $('#title1_animate').val(title1_animate);
+                var paramTitle=[];
+                var paramTitleAnimate=[];
+                var paramTitleDelay=[];
+                var paramTitleCheckboxBold=[];
+                var paramTitleCheckboxItalic=[];
+                for(var i = 0; i < @captionLayout.Titles.Count; i++)
+                {
+                    var title='title'+(i+1);
+                    var title_animate='title'+(i+1)+'_animate';
+                    var title_delay='delay_title'+(i+1);
+                    var title_bold='IsBold_'+title;
+                    var title_italic='IsItalic_'+title;
 
-                var title2_animate = $('#title2_animate').attr('data-title-aminate-selected');
-                $('#title2_animate').val(title2_animate);
+                    paramTitleCheckboxItalic.push(title_italic);
+                    paramTitleCheckboxBold.push(title_bold);
+                    paramTitle.push(title);
+                    paramTitleAnimate.push(title_animate);
+                    paramTitleDelay.push(title_delay);
 
-                var title3_animate = $('#title3_animate').attr('data-title-aminate-selected');
-                $('#title3_animate').val(title3_animate);
+                    var title_animate=$('#title'+(i+1)+'_animate').attr('data-title-aminate-selected');
+                    $('#title'+(i+1)+'_animate').val(title_animate);
+                }
 
                 var caption_animate = $('#caption_animate').attr('data-caption-aminate-selected');
                 $('#caption_animate').val(caption_animate);
+
+                $('#btn_save_changes').attr('data-title-count', '@captionLayout.Titles.Count');
+                $('#btn_save_changes').attr('data-param-title-id', paramTitle.join(','));
+                $('#btn_save_changes').attr('data-param-animate-id', paramTitleAnimate.join(','));
+                $('#btn_save_changes').attr('data-param-delay-id', paramTitleDelay.join(','));
+                $('#btn_save_changes').attr('data-param-title-bold-id', paramTitleCheckboxBold.join(','));
+                $('#btn_save_changes').attr('data-param-title-italic-id', paramTitleCheckboxItalic.join(','));
+                $('#btn_save_changes').attr('data-param-caption-id', 'caption_animate, caption_delay_time');
+                $('#btn_save_changes').attr('data-param-button-id', 'button_title, button_link');
             });
         </script>
         break;
@@ -107,10 +130,214 @@
         switch (Model.HasButton)
         {
             case true:
+                for (int i = 0; i < normalLayout.Titles.Count; i++)
+                {
+                    string data_class = $"text{i + 1}";
+                    string title_id = $"title{i + 1}";
+                    string animate_id = $"title{i + 1}_animate";
+                    string delay_id = $"delay_title{i + 1}";
+                    <div class="col s12">
+                        <div class="row" data-title-count="@normalLayout.Titles.Count">
+                            <div class="col s3 input-field">
+                                <input type="text" data-class="@data_class" class="validate" id="@title_id" value="@normalLayout.Titles[i].Title" />
+                                <label for="@title_id" class="active">Title @(i + 1)</label>
+                            </div>
+                            <div class="col s3">
+                                <label for="@animate_id">Animated title @(i + 1)</label>
+                                <select class="browser-default combobox_animate" id="@animate_id" data-title-aminate-selected="@normalLayout.Titles[i].Animate">
+                                    <option value="disabled" disabled="" selected>Choose your animate title @(i + 1)</option>
+                                    @Html.Action("ListAnimte", "PageSetting")
+                                </select>
+                            </div>
+                            <div class="col s3 input-field">
+                                <input type="text" class="validate" id="@delay_id" value="@normalLayout.Titles[i].Delay" />
+                                <label for="@delay_id" class="active">Delay time title @(i + 1)</label>
+                            </div>
+                            <div class="col s3 input-field">
+                                <div class="row">
+                                    <div class="col s6">
+                                        <p class="p-v-xs">
+                                            @switch (normalLayout.Titles[i].IsBold)
+                                            {
+                                                case true:
+                                                    <input type="checkbox" id="IsBold_@title_id" checked>
+                                                    break;
+                                                case false:
+                                                    <input type="checkbox" id="IsBold_@title_id">
+                                                    break;
+                                            }
+                                            <label for="IsBold_@title_id">Bold</label>
+                                        </p>
+                                    </div>
+                                    <div class="col s6">
+                                        <p class="p-v-xs">
+                                            @switch (normalLayout.Titles[i].IsItalic)
+                                            {
+                                                case true:
+                                                    <input type="checkbox" id="IsItalic_@title_id" checked>
+                                                    break;
+                                                case false:
+                                                    <input type="checkbox" id="IsItalic_@title_id">
+                                                    break;
+                                            }
+                                            <label for="IsItalic_@title_id">Italic</label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="col s12">
+                    <div class="row">
+                        <div class="col s3 input-field">
+                            <input type="text" class="validate" id="button_title" value="@normalLayout.Button.Title" />
+                            <label for="button_title" class="active">Button title</label>
+                        </div>
+                        <div class="col s3">
+                            <label for="button_animate">Animated button</label>
+                            <select class="browser-default combobox_animate" data-button-animate="@normalLayout.Button.Animate" id="button_animate" data-for="button_title">
+                                <option value="disabled" disabled="" selected>Choose your animate button</option>
+                                @Html.Action("ListAnimte", "PageSetting")
+                            </select>
+                        </div>
+                        <div class="col s3 input-field">
+                            <input type="text" class="validate" id="delay_time_button" value="@normalLayout.Button.Delay" />
+                            <label for="delay_time_button" class="active">Delay time button</label>
+                        </div>
+                        <div class="col s3 input-field">
+                            <input type="text" class="validate" id="button_link" value="@normalLayout.Button.Link" />
+                            <label for="button_link" class="active">Button link</label>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    $(document).ready(function () {
+                        var paramTitle=[];
+                        var paramTitleAnimate=[];
+                        var paramTitleDelay=[];
+                        var paramTitleCheckboxBold=[];
+                        var paramTitleCheckboxItalic=[];
+                        for(var i = 0; i < @normalLayout.Titles.Count; i++)
+                        {
+                            var title='title'+(i+1);
+                            var title_animate='title'+(i+1)+'_animate';
+                            var title_delay='delay_title'+(i+1);
+                            var title_bold='IsBold_'+title;
+                            var title_italic='IsItalic_'+title;
 
+                            paramTitleCheckboxItalic.push(title_italic);
+                            paramTitleCheckboxBold.push(title_bold);
+                            paramTitle.push(title);
+                            paramTitleAnimate.push(title_animate);
+                            paramTitleDelay.push(title_delay);
+
+                            var title_animate=$('#title'+(i+1)+'_animate').attr('data-title-aminate-selected');
+                            $('#title'+(i+1)+'_animate').val(title_animate);
+                        }
+                        $('#button_animate').val($('#button_animate').attr('data-button-animate'));
+
+                       $('#btn_save_changes').attr('data-title-count', '@normalLayout.Titles.Count');
+                        $('#btn_save_changes').attr('data-param-title-id', paramTitle.join(','));
+                        $('#btn_save_changes').attr('data-param-animate-id', paramTitleAnimate.join(','));
+                        $('#btn_save_changes').attr('data-param-delay-id', paramTitleDelay.join(','));
+                        $('#btn_save_changes').attr('data-param-title-bold-id', paramTitleCheckboxBold.join(','));
+                        $('#btn_save_changes').attr('data-param-title-italic-id', paramTitleCheckboxItalic.join(','));
+                        $('#btn_save_changes').attr('data-param-button-id', 'button_title, button_animate, delay_time_button, button_link');
+                    });
+                </script>
                 break;
             case false:
+                for (int i = 0; i < normalLayout.Titles.Count; i++)
+                {
+                    string data_class = $"text{i + 1}";
+                    string title_id = $"title{i + 1}";
+                    string animate_id = $"title{i + 1}_animate";
+                    string delay_id = $"delay_title{i + 1}";
+                    <div class="col s12">
+                        <div class="row" data-title-count="@normalLayout.Titles.Count">
+                            <div class="col s3 input-field">
+                                <input type="text" data-class="@data_class" class="validate" id="@title_id" value="@normalLayout.Titles[i].Title" />
+                                <label for="@title_id" class="active">Title @(i + 1)</label>
+                            </div>
+                            <div class="col s3">
+                                <label for="@animate_id">Animated title @(i + 1)</label>
+                                <select class="browser-default combobox_animate" id="@animate_id" data-title-aminate-selected="@normalLayout.Titles[i].Animate">
+                                    <option value="disabled" disabled="" selected>Choose your animate title @i</option>
+                                    @Html.Action("ListAnimte", "PageSetting")
+                                </select>
+                            </div>
+                            <div class="col s3 input-field">
+                                <input type="text" class="validate" id="@delay_id" value="@normalLayout.Titles[i].Delay" />
+                                <label for="@delay_id" class="active">Delay time title @(i + 1)</label>
+                            </div>
+                            <div class="col s3 input-field">
+                                <div class="row">
+                                    <div class="col s6">
+                                        <p class="p-v-xs">
+                                            @switch (normalLayout.Titles[i].IsBold)
+                                            {
+                                                case true:
+                                                    <input type="checkbox" id="IsBold_@title_id" checked>
+                                                    break;
+                                                case false:
+                                                    <input type="checkbox" id="IsBold_@title_id">
+                                                    break;
+                                            }
+                                            <label for="IsBold_@title_id">Bold</label>
+                                        </p>
+                                    </div>
+                                    <div class="col s6">
+                                        <p class="p-v-xs">
+                                            @switch (normalLayout.Titles[i].IsItalic)
+                                            {
+                                                case true:
+                                                    <input type="checkbox" id="IsItalic_@title_id" checked>
+                                                    break;
+                                                case false:
+                                                    <input type="checkbox" id="IsItalic_@title_id">
+                                                    break;
+                                            }
+                                            <label for="IsItalic_@title_id">Italic</label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <script>
+                    $(document).ready(function () {
+                        var paramTitle=[];
+                        var paramTitleAnimate=[];
+                        var paramTitleDelay=[];
+                        var paramTitleCheckboxBold=[];
+                        var paramTitleCheckboxItalic=[];
+                        for(var i = 0; i < @normalLayout.Titles.Count; i++)
+                        {
+                            var title='title'+(i+1);
+                            var title_animate='title'+(i+1)+'_animate';
+                            var title_delay='delay_title'+(i+1);
+                            var title_bold='IsBold_'+title;
+                            var title_italic='IsItalic_'+title;
 
+                            paramTitleCheckboxItalic.push(title_italic);
+                            paramTitleCheckboxBold.push(title_bold);
+                            paramTitle.push(title);
+                            paramTitleAnimate.push(title_animate);
+                            paramTitleDelay.push(title_delay);
+
+                            var title_animate=$('#title'+(i+1)+'_animate').attr('data-title-aminate-selected');
+                            $('#title'+(i+1)+'_animate').val(title_animate);
+                        }
+                        $('#btn_save_changes').attr('data-title-count', '@normalLayout.Titles.Count');
+                        $('#btn_save_changes').attr('data-param-title-id', paramTitle.join(','));
+                        $('#btn_save_changes').attr('data-param-animate-id', paramTitleAnimate.join(','));
+                        $('#btn_save_changes').attr('data-param-delay-id', paramTitleDelay.join(','));
+                        $('#btn_save_changes').attr('data-param-title-bold-id', paramTitleCheckboxBold.join(','));
+                        $('#btn_save_changes').attr('data-param-title-italic-id', paramTitleCheckboxItalic.join(','));
+                    });
+                </script>
                 break;
         }
 

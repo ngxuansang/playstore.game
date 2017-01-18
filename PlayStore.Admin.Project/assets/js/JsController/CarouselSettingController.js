@@ -47,6 +47,7 @@ $(document).ready(function () {
 
 $('body').on('click', 'a[data-button="detail"]', function () {
     var _carousel_id = parseInt($(this).attr('data-object-id'));
+    $('#btn_save_changes').attr('data-object-id', _carousel_id);
     $.ajax({
         type: "get",
         url: "/PageSetting/GetCarouselContentByID",
@@ -56,17 +57,7 @@ $('body').on('click', 'a[data-button="detail"]', function () {
         }
     });
 
-    var title1_animate = $('#title1_animate').attr('data-title-aminate-selected');
-    $('#title1_animate').val(title1_animate);
-
-    var title2_animate = $('#title2_animate').attr('data-title-aminate-selected');
-    $('#title2_animate').val(title2_animate);
-
-    var title3_animate = $('#title3_animate').attr('data-title-aminate-selected');
-    $('#title3_animate').val(title3_animate);
-
-    var caption_animate = $('#caption_animate').attr('data-caption-aminate-selected');
-    $('#caption_animate').val(caption_animate);
+   
 });
 
 $('#detail_carousel').on('click', '#btn_save', function () {
