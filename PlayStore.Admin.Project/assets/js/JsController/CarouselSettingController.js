@@ -119,6 +119,7 @@ $('#detail_carousel').on('click', '#btn_close', function () {
 });
 
 $('#frm_create').on('click', '#btn_create', function (event) {
+
     if ($('#frm_create').valid()) {
         var image_url = $('#ImagePath').val();
         var sort_order = $('#SortOrder').val();
@@ -186,6 +187,10 @@ $('#frm_create').on('click', '#btn_create', function (event) {
                 }
                 break;
         }
+
+        $('#frm_create').submit(function (event) {
+            event.preventDefault();
+        });
     }
 });
 
