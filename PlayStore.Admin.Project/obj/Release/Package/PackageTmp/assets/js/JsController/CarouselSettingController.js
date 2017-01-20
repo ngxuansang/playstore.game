@@ -41,22 +41,40 @@ function createCarouselObject(_basic, _option, _layout) {
     });
 }
 
+function updateCarouselContent(_carousel_id, _layout) {
+    $.ajax({
+        type: "POST",
+        url: "/PageSetting/UpdateCarouselContent",
+        data: { carouselID: _carousel_id, jsonLayout: JSON.stringify(_layout)  },
+        dataType: "json",
+        success: function (response) {
+            switch (response.IsError) {
+                case 0:
+                    swal("Carousel content is updated", response.Messages, "success");
+                    break;
+                case 1:
+                    swal("Update Failed", response.Messages, "error");
+                    break;
+            }
+        }
+    });
+}
+
 $(document).ready(function () {
     DisplayNormalControl();
 });
 
-$('body').on('click', 'button[data-button="detail"]', function () {
-    $('#tab_carousel_detail').removeClass('disabled');
-    $('#tab_carousel_detail').addClass('active');
-    $('#detail_carousel').css('display', 'block');
-    $('.indicator').css('right', '352.667px');
-    $('.indicator').css('left', '352.667px');
-
-    $('#tab_carousel_view').addClass('disabled');
-    $('#tab_carousel_create').addClass('disabled');
-
-    $('#create_carousel').css('display', 'none');
-    $('#carousel_view').css('display', 'none');
+$('body').on('click', 'a[data-button="detail"]', function () {
+    var _carousel_id = parseInt($(this).attr('data-object-id'));
+    $('#btn_save_changes').attr('data-object-id', _carousel_id);
+    $.ajax({
+        type: "get",
+        url: "/PageSetting/GetCarouselContentByID",
+        data: { carouselID: _carousel_id },
+        success: function (response) {
+            $('#modal_carousel_content > .modal-content').html(response);
+        }
+    });
 });
 
 $('#detail_carousel').on('click', '#btn_save', function () {
@@ -213,7 +231,17 @@ $('body').on('click', 'button[data-button="save"]', function () {
         success: function (response) {
             switch (response.IsError) {
                 case 0:
-                    swal("Carousel is updated", response.Messages, "success");
+                    swal({
+                        title: "Carousel is updated !",
+                        text: response.Messages,
+                        type: "success",
+                        showCancelButton: true,
+                        confirmButtonText: "Reload page",
+                        closeOnConfirm: false
+                    },
+                    function () {
+                        window.location.reload();
+                    });
                     break;
                 case 1:
                     swal("Update Failed", response.Messages, "error");
@@ -226,4 +254,61 @@ $('body').on('click', 'button[data-button="save"]', function () {
 $('body').on('change', '.img_change_event', function () {
     var carousel_id = parseInt($(this).attr('data-object-id'));
     $('#img-' + carousel_id).attr('src', $(this).val());
+});
+
+$('body').on('click', '#btn_save_changes', function () {
+    var objectID = parseInt($(this).attr('data-object-id'));
+    var title_count = parseInt($(this).attr('data-title-count'));
+
+    var paramTitle = $(this).attr('data-param-title-id').split(',');
+    var paramTitleAnimate = $(this).attr('data-param-animate-id').split(',');
+    var paramTitleDelay = $(this).attr('data-param-delay-id').split(',');
+    var paramTitleCheckboxBold = $(this).attr('data-param-title-bold-id').split(',');
+    var paramTitleCheckboxItalic = $(this).attr('data-param-title-italic-id').split(',');
+
+    //get value title
+    var titleValueArray = [];
+    for (var i = 0; i < title_count; i++) {
+        titleValueArray.push({
+            Title: $('#' + paramTitle[i]).val(),
+            Animate: $('#' + paramTitleAnimate[i]).val(),
+            Delay: $('#' + paramTitleDelay[i]).val(),
+            IsBold: $('#' + paramTitleCheckboxBold[i]).prop('checked'),
+            IsItalic: $('#' + paramTitleCheckboxItalic[i]).prop('checked'),
+            Style: $('#' + paramTitle[i]).attr('data-class')
+        })
+    }
+    //do not swap position param in json string
+    if ($(this).attr('data-param-caption-id') != undefined && $(this).attr('data-param-caption-id') != undefined) {
+        var paramButton = $(this).attr('data-param-button-id').split(',');
+        var paramCaptionFrame = $(this).attr('data-param-caption-id').split(',');
+        var _layout = {
+            Titles: titleValueArray,
+            Button: { Title: $('#' + paramButton[0]).val(), Link: $('#' + paramButton[1].trim()).val() },
+            CaptionFrame: { Animate: $('#' + paramCaptionFrame[0]).val(), Delay: $('#' + paramCaptionFrame[1].trim()).val() }
+        };
+        updateCarouselContent(objectID, _layout);
+    }
+    else {
+        if ($(this).attr('data-param-button-id') == undefined) {
+            var _layout = {
+                Titles: titleValueArray,
+                Button: null,
+            };
+            updateCarouselContent(objectID, _layout);
+        }
+        else {
+            var paramButton = $(this).attr('data-param-button-id').split(',');
+            var _layout = {
+                Titles: titleValueArray,
+                Button: {
+                    Title: $('#' + paramButton[0]).val(),
+                    Animate: $('#' + paramButton[1].trim()).val(),
+                    Delay: $('#' + paramButton[2].trim()).val(),
+                    Link: $('#' + paramButton[3].trim()).val()
+                }
+            };
+            updateCarouselContent(objectID, _layout);
+        }
+    }
 });

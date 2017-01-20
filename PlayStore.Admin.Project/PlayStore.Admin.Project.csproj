@@ -1424,7 +1424,7 @@
     <Content Include="Views\Home\Error404.cshtml" />
     <Content Include="Views\Home\Error500.cshtml" />
     <Content Include="Views\Manage\UserRole.cshtml" />
-    <Content Include="Views\PageSetting\Index.cshtml" />
+    <Content Include="Views\PageSetting\Carousel.cshtml" />
     <Content Include="Views\PageSetting\Create.cshtml" />
     <Content Include="Views\PageSetting\InnerCaptionControl.cshtml" />
     <Content Include="Views\PageSetting\NormalControl.cshtml" />

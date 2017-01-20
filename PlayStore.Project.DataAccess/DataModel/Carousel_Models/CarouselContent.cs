@@ -44,7 +44,6 @@ namespace PlayStore.Project.DataAccess.DataModel.Carousel_Models
 
         public void Update(CaptionLayout newObj)
         {
-            throw new NotImplementedException();
         }
 
         public void Delete(CaptionLayout obj)
@@ -79,7 +78,6 @@ namespace PlayStore.Project.DataAccess.DataModel.Carousel_Models
 
         public void Update(CaptionLayout newObj)
         {
-            throw new NotImplementedException();
         }
     }
 

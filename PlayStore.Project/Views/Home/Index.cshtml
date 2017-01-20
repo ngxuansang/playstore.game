@@ -88,7 +88,7 @@
                                                 }
                                                 <div class="animate" data-animate="@contentCaption.CaptionFrame.Animate" data-delay="@contentCaption.CaptionFrame.Delay">
                                                     <!-- coolbutton -->
-                                                    <a href="#" class="cool-btn" style="-webkit-clip-path: url(#coolButton); clip-path: url(#coolButton);">
+                                                    <a href="@contentCaption.Button.Link" class="cool-btn" style="-webkit-clip-path: url(#coolButton); clip-path: url(#coolButton);">
                                                         <span>@contentCaption.Button.Title</span>
                                                     </a>
                                                     <svg class="clip-svg">
@@ -117,7 +117,7 @@
                                                         <div class="@title.Style animate" data-animate="@title.Animate" data-delay="@title.Delay"> @title.Title </div>
                                                     }
                                                     @{var styleButton = normalContent.Titles.Last().Style.Split('-');}
-                                                    <a href="#" class="@styleButton[0]-@(int.Parse(styleButton[1]) + 1) animate" data-animate="@normalContent.Button.Animate" data-delay="@normalContent.Button.Delay"> @normalContent.Button.Title </a>
+                                                    <a href="@normalContent.Button.Link" class="@styleButton[0]-@(int.Parse(styleButton[1]) + 1) animate" data-animate="@normalContent.Button.Animate" data-delay="@normalContent.Button.Delay"> @normalContent.Button.Title </a>
                                                 </div>
                                             </div>
                                             break;

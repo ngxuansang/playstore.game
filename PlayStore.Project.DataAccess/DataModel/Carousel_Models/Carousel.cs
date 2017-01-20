@@ -15,6 +15,7 @@ namespace PlayStore.Project.DataAccess.DataModel.Carousel_Models
         public long ID { get; set; }
 
         [Required]
+        [RegularExpression(@"/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/", ErrorMessage = "Image path invalid")]
         [Display(Name = "Image path")]
         public string ImagePath { get; set; }
 

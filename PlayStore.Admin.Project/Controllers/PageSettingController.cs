@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -16,7 +17,7 @@ namespace PlayStore.Admin.Project.Controllers
         private DiaGameEntities db = new DiaGameEntities();
 
         // GET: PageSetting
-        public ActionResult Index()
+        public ActionResult Carousel()
         {
             CarouselSettingViewModel model = new CarouselSettingViewModel();
             model.Carousels = db.Database.SqlQuery<Carousel>("get_carousel_basic").ToList();
@@ -40,6 +41,23 @@ namespace PlayStore.Admin.Project.Controllers
             }
         }
 
+        [HttpPost]
+        //POST: /PageSetting/UpdateCarouselContent
+        public ActionResult UpdateCarouselContent(long carouselID, string jsonLayout)
+        {
+            try
+            {
+                var execute = db.Database.ExecuteSqlCommand("admin_update_carousel_content @carouselOwnerID, @jsonLayout",
+                    new SqlParameter("@carouselOwnerID", carouselID),
+                    new SqlParameter("@jsonLayout", jsonLayout));
+                return Json(new { IsError = 0, Messages = "Update successful !" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { IsError = 1, Messages = ex.Message });
+            }
+        }
+
         [AllowAnonymous]
         //GET: /PageSetting/Create
         public ActionResult Create()
@@ -54,8 +72,11 @@ namespace PlayStore.Admin.Project.Controllers
             try
             {
                 Carousel carousel = JsonConvert.DeserializeObject<Carousel>(basicCarousel);
+
+
                 //insert basic
                 long carouselID = carousel.Insert();
+               
                 switch (option)
                 {
                     case "caption_control":
@@ -116,7 +137,7 @@ namespace PlayStore.Admin.Project.Controllers
         //POST: /PageSetting/GetCarouselContentByID
         public ActionResult GetCarouselContentByID(long carouselID)
         {
-            var content = db.Database.SqlQuery<CarouselContent>("admin_get_carousel_content @carouselID", 
+            var content = db.Database.SqlQuery<CarouselContent>("admin_get_carousel_content @carouselID",
                 new SqlParameter("@carouselID", carouselID)).First();
             return PartialView(content);
         }
